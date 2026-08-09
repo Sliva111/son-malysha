@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: #0a0e27;
+    background: #1a1035;
     color: #1e1035;
     line-height: 1.6;
 }
@@ -43,11 +43,11 @@ body {
 }
 
 .section.alt {
-    background: rgba(242,240,238,0.4);
+    background: rgba(26,16,53,0.4);
 }
 
 .section:not(.alt) {
-    background: rgba(231,228,225,0.4);
+    background: rgba(26,16,53,0.4);
 }
 
 .container {
@@ -234,6 +234,16 @@ nav a:hover {
 .btn-outline:hover {
     background: white;
     color: #1e1035;
+}
+
+.btn-green {
+    background: #25D366;
+    color: white;
+    border: none;
+}
+
+.btn-green:hover {
+    background: #1da851;
 }
 
 .full {
@@ -791,7 +801,7 @@ nav a:hover {
 /* ================= FOOTER ================= */
 
 .legal-footer {
-    background: #1e1035;
+    background: rgba(26,16,53,0.8);
     color: white;
     padding: 60px 0 30px;
     text-align: center;
