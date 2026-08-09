@@ -94,10 +94,11 @@ nav a:hover {
     align-items: flex-start;
     padding-top: 200px;
 
+    background-color: #E7E4E1;
     background-image: url("../assets/img/hero.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 40% center;
+    background-size: 90% auto;
+    background-position: center;
 }
 
 @media (min-width: 993px) {
