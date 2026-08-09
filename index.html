@@ -120,21 +120,21 @@
                 </div>
             </div>
 
-            <div class="certificate-item certificate-text">
-                <div class="cert-icon"></div>
+            <div class="certificate-item">
+                <img src="assets/img/certificate2.jpg" alt="Документ о высшем образовании" class="certificate-img">
                 <div class="certificate-info">
-                    <h3>Высшее педагогическое образование</h3>
-                    <p>Дошкольный педагог</p>
+                    <h3>Документ о высшем образовании</h3>
+                    <p>Дошкольный педагог, детский психолог</p>
                     <p class="cert-date">Диплом предоставляется по запросу</p>
                 </div>
             </div>
 
-            <div class="certificate-item certificate-text">
-                <div class="cert-icon">🧠</div>
+            <div class="certificate-item">
+                <img src="assets/img/certificate3.jpg" alt="Документ о квалификации" class="certificate-img">
                 <div class="certificate-info">
-                    <h3>Детский психолог</h3>
-                    <p>Дипломированный специалист</p>
-                    <p class="cert-date">Диплом предоставляется по запросу</p>
+                    <h3>Документ о квалификации</h3>
+                    <p>Дополнительная профессиональная программа</p>
+                    <p class="cert-date">Лицензия № Л035-01298-77/00181484</p>
                 </div>
             </div>
         </div>
@@ -467,19 +467,19 @@
     <div class="container center reveal">
         <h2>Свяжитесь со мной</h2>
 
-        <form class="form">
-            <input type="text" placeholder="Ваше имя" required>
-            <input type="tel" placeholder="Телефон / WhatsApp" required>
+        <form class="form" id="contactForm">
+            <input type="text" id="formName" placeholder="Ваше имя" required>
+            <input type="tel" id="formPhone" placeholder="Телефон / WhatsApp" required>
 
             <label class="checkbox">
                 <input type="checkbox" required>
-                Я согласен(а) с
+                Я согласен(а) с 
                 <a href="privacy.html" target="_blank">обработкой персональных данных</a>
-                и принимаю условия
+                и принимаю условия 
                 <a href="oferta.html" target="_blank">публичной оферты</a>
             </label>
 
-            <button class="btn btn-accent full">
+            <button class="btn btn-accent full" type="submit">
                 🚀 Отправить заявку
             </button>
         </form>
@@ -496,7 +496,7 @@
 
         <p>
             Телефон: <a href="tel:+79649477511">+7 964 947-75-11</a>
-            Email: <a href="mailto:Ok5usha9@yandex.ru">Ok5usha9@yandex.ru</a>
+            Email: <a href="/cdn-cgi/l/email-protection#e3ac88d696908b82daa39a828d87869bcd9196"><span class="__cf_email__" data-cfemail="b8f7d38dcdcbd0d981f8c1d9d6dcddc096cacd">[email&#160;protected]</span></a>
         </p>
 
         <p class="legal-links">
@@ -511,7 +511,18 @@
     <a href="https://wa.me/79649477511" target="_blank"></a>
 </div>
 
-<script src="js/main.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.js"></script>
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var name = document.getElementById('formName').value;
+    var phone = document.getElementById('formPhone').value;
+    var text = 'Новая заявка с сайта!%0AИмя: ' + name + '%0AТелефон: ' + phone;
+    window.open('https://wa.me/79649477511?text=' + text, '_blank');
+    this.reset();
+    alert('Спасибо! Сейчас откроется WhatsApp для отправки заявки.');
+});
+</script>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2888254dc6ec12e',t:'MTc4NjI5Njg0MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
