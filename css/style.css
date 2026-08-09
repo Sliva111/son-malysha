@@ -96,7 +96,7 @@ nav a:hover {
 
     background-image: url("../assets/img/hero.jpg");
     background-repeat: no-repeat;
-    background-size: 105% auto;
+    background-size: 80% auto;
     background-position: 5% center;
 }
 
@@ -353,6 +353,43 @@ nav a:hover {
     color: #999 !important;
 }
 
+/* ================= HERO ABOUT ================= */
+
+.hero-about {
+    margin-top: 40px;
+    max-width: 560px;
+}
+
+.hero-about-text {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.hero-about-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 20px 0;
+}
+
+.hero-about-list li {
+    padding: 6px 0 6px 28px;
+    position: relative;
+    color: rgba(255,255,255,0.9);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.hero-about-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #8b5cf6;
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
 /* ================= CHANNELS ================= */
 
 .channels-grid {
@@ -370,31 +407,72 @@ nav a:hover {
     color: inherit;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
 }
 
 .channel-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(108,92,231,0.2);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
-.channel-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
+.channel-svg {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 15px;
+    display: block;
+}
+
+.channel-telegram {
+    background: linear-gradient(135deg, #2AABEE, #229ED9);
+    color: white;
+}
+
+.channel-telegram:hover {
+    box-shadow: 0 12px 30px rgba(42,171,238,0.4);
+}
+
+.channel-instagram {
+    background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCB045);
+    color: white;
+}
+
+.channel-instagram:hover {
+    box-shadow: 0 12px 30px rgba(131,58,180,0.4);
+}
+
+.channel-max {
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    color: white;
+}
+
+.channel-max:hover {
+    box-shadow: 0 12px 30px rgba(139,92,246,0.4);
+}
+
+.channel-vk {
+    background: linear-gradient(135deg, #0077FF, #0055CC);
+    color: white;
+}
+
+.channel-vk:hover {
+    box-shadow: 0 12px 30px rgba(0,119,255,0.4);
 }
 
 .channel-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 800;
-    margin-bottom: 10px;
-    color: #1e1035;
+    margin-bottom: 8px;
+    color: inherit;
 }
 
 .channel-card p {
-    color: #6d6d8a;
-    font-size: 0.95rem;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.9rem;
 }
 
-/* ================= REVIEWS ================= */
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
 
 .reviews-grid {
     display: grid;
