@@ -43,11 +43,11 @@ body {
 }
 
 .section.alt {
-    background: rgba(242,240,238,0.65);
+    background: rgba(242,240,238,0.4);
 }
 
 .section:not(.alt) {
-    background: rgba(231,228,225,0.65);
+    background: rgba(231,228,225,0.4);
 }
 
 .container {
@@ -84,7 +84,7 @@ header {
     width: 100%;
     top: 0;
     backdrop-filter: blur(14px);
-    background: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.5);
     border-bottom: 1px solid rgba(0,0,0,0.05);
     z-index: 1000;
 }
@@ -250,7 +250,7 @@ nav a:hover {
 }
 
 .card {
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.7);
     border-radius: 20px;
     padding: 35px 30px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
@@ -259,6 +259,7 @@ nav a:hover {
     flex-direction: column;
     position: relative;
     z-index: 1;
+    backdrop-filter: blur(5px);
 }
 
 .card:hover {
@@ -357,13 +358,14 @@ nav a:hover {
 }
 
 .certificate-item {
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.7);
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
     z-index: 1;
+    backdrop-filter: blur(5px);
 }
 
 .certificate-item:hover {
@@ -463,7 +465,7 @@ nav a:hover {
 }
 
 .channel-card {
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.7);
     padding: 40px 30px;
     border-radius: 20px;
     text-decoration: none;
@@ -473,6 +475,7 @@ nav a:hover {
     text-align: center;
     position: relative;
     z-index: 1;
+    backdrop-filter: blur(5px);
 }
 
 .channel-card:hover {
@@ -546,7 +549,7 @@ nav a:hover {
 }
 
 .review-screenshot {
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.7);
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
@@ -555,10 +558,11 @@ nav a:hover {
     width: 100%;
     position: relative;
     z-index: 1;
+    backdrop-filter: blur(5px);
 }
 
 .review-chat {
-    background: rgba(232,245,233,0.85);
+    background: rgba(232,245,233,0.7);
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
@@ -567,6 +571,7 @@ nav a:hover {
     width: 100%;
     position: relative;
     z-index: 1;
+    backdrop-filter: blur(5px);
 }
 
 .chat-forwarded {
@@ -693,7 +698,7 @@ nav a:hover {
 /* ================= FORM ================= */
 
 .cta {
-    background: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.5);
 }
 
 .cta h2 {
@@ -761,13 +766,14 @@ nav a:hover {
 /* ================= FAQ ================= */
 
 .faq-item {
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.7);
     padding: 25px 30px;
     border-radius: 15px;
     margin-bottom: 20px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     position: relative;
     z-index: 1;
+    backdrop-filter: blur(5px);
 }
 
 .faq-question {
