@@ -11,74 +11,43 @@ body {
     background: #0a0e27;
     color: #1e1035;
     line-height: 1.6;
-    position: relative;
 }
 
-/* Ночное небо - звёзды */
-body::before {
-    content: '';
+/* Звёздное небо */
+.stars-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background:
-        /* Большие яркие звёзды */
-        radial-gradient(circle, #fff 0%, transparent 70%) 5% 15% / 3px 3px,
-        radial-gradient(circle, #fff 0%, transparent 70%) 15% 85% / 3px 3px,
-        radial-gradient(circle, #fff 0%, transparent 70%) 28% 25% / 3px 3px,
-        radial-gradient(circle, #fff 0%, transparent 70%) 42% 92% / 3px 3px,
-        radial-gradient(circle, #fff 0%, transparent 70%) 58% 8% / 3px 3px,
-        radial-gradient(circle, #fff 0%, transparent 70%) 72% 68% / 3px 3px,
-        radial-gradient(circle, #fff 0%, transparent 70%) 88% 42% / 3px 3px,
-        radial-gradient(circle, #fff 0%, transparent 70%) 95% 78% / 3px 3px,
-        /* Средние звёзды */
-        radial-gradient(circle, rgba(255,255,255,0.9) 0%, transparent 70%) 8% 45% / 2px 2px,
-        radial-gradient(circle, rgba(255,255,255,0.9) 0%, transparent 70%) 22% 12% / 2px 2px,
-        radial-gradient(circle, rgba(255,255,255,0.9) 0%, transparent 70%) 35% 55% / 2px 2px,
-        radial-gradient(circle, rgba(255,255,255,0.9) 0%, transparent 70%) 48% 18% / 2px 2px,
-        radial-gradient(circle, rgba(255,255,255,0.9) 0%, transparent 70%) 62% 35% / 2px 2px,
-        radial-gradient(circle, rgba(255,255,255,0.9) 0%, transparent 70%) 75% 92% / 2px 2px,
-        radial-gradient(circle, rgba(255,255,255,0.9) 0%, transparent 70%) 85% 15% / 2px 2px,
-        radial-gradient(circle, rgba(255,255,255,0.9) 0%, transparent 70%) 92% 55% / 2px 2px,
-        /* Маленькие звёзды */
-        radial-gradient(circle, rgba(255,255,255,0.7) 0%, transparent 70%) 3% 72% / 1.5px 1.5px,
-        radial-gradient(circle, rgba(255,255,255,0.7) 0%, transparent 70%) 12% 38% / 1.5px 1.5px,
-        radial-gradient(circle, rgba(255,255,255,0.7) 0%, transparent 70%) 25% 62% / 1.5px 1.5px,
-        radial-gradient(circle, rgba(255,255,255,0.7) 0%, transparent 70%) 38% 8% / 1.5px 1.5px,
-        radial-gradient(circle, rgba(255,255,255,0.7) 0%, transparent 70%) 52% 75% / 1.5px 1.5px,
-        radial-gradient(circle, rgba(255,255,255,0.7) 0%, transparent 70%) 65% 48% / 1.5px 1.5px,
-        radial-gradient(circle, rgba(255,255,255,0.7) 0%, transparent 70%) 78% 22% / 1.5px 1.5px,
-        radial-gradient(circle, rgba(255,255,255,0.7) 0%, transparent 70%) 90% 88% / 1.5px 1.5px,
-        /* Тонкие звёзды */
-        radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%) 7% 95% / 1px 1px,
-        radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%) 18% 52% / 1px 1px,
-        radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%) 32% 28% / 1px 1px,
-        radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%) 45% 65% / 1px 1px,
-        radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%) 55% 42% / 1px 1px,
-        radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%) 68% 18% / 1px 1px,
-        radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%) 82% 75% / 1px 1px,
-        radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%) 96% 32% / 1px 1px,
-        /* Цветные звёзды */
-        radial-gradient(circle, rgba(200,220,255,0.8) 0%, transparent 70%) 10% 20% / 2.5px 2.5px,
-        radial-gradient(circle, rgba(255,220,200,0.8) 0%, transparent 70%) 50% 50% / 2.5px 2.5px,
-        radial-gradient(circle, rgba(200,255,220,0.8) 0%, transparent 70%) 80% 60% / 2.5px 2.5px,
-        /* Ещё слой мелких звёзд */
-        radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%) 2% 8% / 1px 1px,
-        radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%) 14% 68% / 1px 1px,
-        radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%) 27% 42% / 1px 1px,
-        radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%) 40% 78% / 1px 1px,
-        radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%) 53% 28% / 1px 1px,
-        radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%) 66% 58% / 1px 1px,
-        radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%) 79% 88% / 1px 1px,
-        radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%) 93% 12% / 1px 1px;
-    z-index: -1;
-    animation: twinkle 8s ease-in-out infinite alternate;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
 }
 
-@keyframes twinkle {
-    0% { opacity: 0.8; }
-    100% { opacity: 1; }
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+}
+
+@keyframes starTwinkle {
+    0% { opacity: 0.3; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.3); }
+}
+
+.section {
+    padding: 100px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.section.alt {
+    background: rgba(242,240,238,0.65);
+}
+
+.section:not(.alt) {
+    background: rgba(231,228,225,0.65);
 }
 
 .container {
@@ -115,7 +84,7 @@ header {
     width: 100%;
     top: 0;
     backdrop-filter: blur(14px);
-    background: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.7);
     border-bottom: 1px solid rgba(0,0,0,0.05);
     z-index: 1000;
 }
@@ -165,8 +134,8 @@ nav a:hover {
     display: flex;
     align-items: flex-start;
     padding-top: 200px;
+    z-index: 1;
 
-    background-color: transparent;
     background-image: url("../assets/img/hero.jpg");
     background-repeat: no-repeat;
     background-size: 90% auto;
@@ -203,6 +172,8 @@ nav a:hover {
     max-width: 480px;
     margin-right: auto;
     padding-left: 60px;
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
@@ -279,13 +250,15 @@ nav a:hover {
 }
 
 .card {
-    background: rgba(255,255,255,0.92);
+    background: rgba(255,255,255,0.85);
     border-radius: 20px;
     padding: 35px 30px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 1;
 }
 
 .card:hover {
@@ -384,11 +357,13 @@ nav a:hover {
 }
 
 .certificate-item {
-    background: rgba(255,255,255,0.95);
+    background: rgba(255,255,255,0.85);
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 1;
 }
 
 .certificate-item:hover {
@@ -441,11 +416,11 @@ nav a:hover {
 .hero-about {
     margin-top: 30px;
     max-width: 350px;
-    background: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.1);
     backdrop-filter: blur(12px);
     border-radius: 16px;
     padding: 25px 28px;
-    border: 1px solid rgba(255,255,255,0.25);
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 .hero-about-text {
@@ -488,7 +463,7 @@ nav a:hover {
 }
 
 .channel-card {
-    background: rgba(255,255,255,0.95);
+    background: rgba(255,255,255,0.85);
     padding: 40px 30px;
     border-radius: 20px;
     text-decoration: none;
@@ -496,6 +471,8 @@ nav a:hover {
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     transition: transform 0.3s, box-shadow 0.3s;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .channel-card:hover {
@@ -569,23 +546,27 @@ nav a:hover {
 }
 
 .review-screenshot {
-    background: rgba(255,255,255,0.95);
+    background: rgba(255,255,255,0.85);
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     max-width: 500px;
     margin: 0 auto;
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .review-chat {
-    background: rgba(232,245,233,0.95);
+    background: rgba(232,245,233,0.85);
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     max-width: 500px;
     margin: 0 auto;
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .chat-forwarded {
@@ -712,7 +693,7 @@ nav a:hover {
 /* ================= FORM ================= */
 
 .cta {
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.7);
 }
 
 .cta h2 {
@@ -780,11 +761,13 @@ nav a:hover {
 /* ================= FAQ ================= */
 
 .faq-item {
-    background: rgba(255,255,255,0.95);
+    background: rgba(255,255,255,0.85);
     padding: 25px 30px;
     border-radius: 15px;
     margin-bottom: 20px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 1;
 }
 
 .faq-question {

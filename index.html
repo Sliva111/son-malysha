@@ -11,6 +11,9 @@
 
 <body>
 
+<!-- Звёздное небо -->
+<div class="stars-overlay" id="starsOverlay"></div>
+
 <!-- HEADER -->
 <header id="header">
     <div class="container nav">
@@ -514,6 +517,35 @@
 
 <script src="js/main.js"></script>
 <script>
+// Звёздное небо
+(function() {
+    var overlay = document.getElementById('starsOverlay');
+    if (!overlay) return;
+    var count = 150;
+    for (var i = 0; i < count; i++) {
+        var star = document.createElement('div');
+        star.className = 'star';
+        var size = Math.random();
+        var w, h, opacity;
+        if (size < 0.6) { w = 1; h = 1; opacity = 0.3 + Math.random() * 0.4; }
+        else if (size < 0.9) { w = 2; h = 2; opacity = 0.5 + Math.random() * 0.4; }
+        else { w = 3; h = 3; opacity = 0.8 + Math.random() * 0.2; }
+        star.style.cssText = 'position:absolute;width:' + w + 'px;height:' + h + 'px;background:white;border-radius:50%;left:' + (Math.random() * 100) + '%;top:' + (Math.random() * 100) + '%;opacity:' + opacity + ';';
+        if (w >= 2) {
+            star.style.animation = 'starTwinkle ' + (3 + Math.random() * 5) + 's ease-in-out infinite alternate';
+            star.style.animationDelay = (Math.random() * 5) + 's';
+        }
+        if (Math.random() < 0.05) {
+            star.style.background = '#aaddff';
+            star.style.boxShadow = '0 0 3px #aaddff';
+        } else if (Math.random() < 0.05) {
+            star.style.background = '#ffddaa';
+            star.style.boxShadow = '0 0 3px #ffddaa';
+        }
+        overlay.appendChild(star);
+    }
+})();
+
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     var name = document.getElementById('formName').value;
