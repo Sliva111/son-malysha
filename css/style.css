@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: #E7E4E1 /* совпадает с фоном фото */
+    background: #E7E4E1;
     color: #1e1035;
     line-height: 1.6;
 }
@@ -105,8 +105,6 @@ nav a:hover {
         min-height: calc(100vw * 1.1);
     }
 }
-
-/* мягкий затемняющий слой слева для читаемости текста */
 
 .hero-overlay {
     position: absolute;
@@ -358,7 +356,6 @@ nav a:hover {
 .hero-about {
     margin-top: 30px;
     max-width: 420px;
-    margin-left: auto;
     background: rgba(255,255,255,0.12);
     backdrop-filter: blur(10px);
     border-radius: 16px;
@@ -476,9 +473,7 @@ nav a:hover {
     font-size: 0.9rem;
 }
 
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 992px) {
+/* ================= REVIEWS ================= */
 
 .reviews-grid {
     display: grid;
