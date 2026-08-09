@@ -355,7 +355,7 @@ nav a:hover {
 
 .hero-about {
     margin-top: 30px;
-    max-width: 420px;
+    max-width: 350px;
     background: rgba(255,255,255,0.12);
     backdrop-filter: blur(10px);
     border-radius: 16px;
