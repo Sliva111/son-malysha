@@ -96,8 +96,8 @@ nav a:hover {
 
     background-image: url("../assets/img/hero.jpg");
     background-repeat: no-repeat;
-    background-size: 80% auto;
-    background-position: 5% center;
+    background-size: cover;
+    background-position: 40% center;
 }
 
 @media (min-width: 993px) {
@@ -356,28 +356,34 @@ nav a:hover {
 /* ================= HERO ABOUT ================= */
 
 .hero-about {
-    margin-top: 40px;
-    max-width: 560px;
+    margin-top: 30px;
+    max-width: 420px;
+    margin-left: auto;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 25px 28px;
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 .hero-about-text {
-    color: rgba(255,255,255,0.9);
-    font-size: 1.05rem;
+    color: rgba(255,255,255,0.95);
+    font-size: 0.95rem;
     line-height: 1.7;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .hero-about-list {
     list-style: none;
     padding: 0;
-    margin: 15px 0 20px 0;
+    margin: 12px 0 15px 0;
 }
 
 .hero-about-list li {
-    padding: 6px 0 6px 28px;
+    padding: 5px 0 5px 28px;
     position: relative;
-    color: rgba(255,255,255,0.9);
-    font-size: 1rem;
+    color: rgba(255,255,255,0.95);
+    font-size: 0.9rem;
     line-height: 1.5;
 }
 
@@ -385,9 +391,9 @@ nav a:hover {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #8b5cf6;
+    color: #a78bfa;
     font-weight: 900;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 /* ================= CHANNELS ================= */
