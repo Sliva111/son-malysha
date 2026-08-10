@@ -900,3 +900,34 @@ nav a:hover {
     }
 
 }
+
+/* Отключаем тяжелые эффекты на мобильных */
+@media (max-width: 768px) {
+    .hero {
+        background-image: none; /* <-- САМОЕ ВАЖНОЕ! */
+    }
+}
+
+/* Отключаем тяжелые эффекты на мобильных */
+@media (max-width: 768px) {
+    .hero {
+        background-image: none;
+    }
+
+    /* Убираем размытие и заменяем его на простой полупрозрачный фон */
+    header,
+    .card,
+    .certificate-item,
+    .hero-about,
+    .channel-card,
+    .review-screenshot,
+    .review-chat,
+    .faq-item {
+        backdrop-filter: none; /* Отключаем размытие */
+    }
+
+    /* Можно задать альтернативный фон, чтобы сохранить вид */
+    .card, .certificate-item, .faq-item, .channel-card, .review-screenshot, .review-chat {
+        background: rgba(255, 255, 255, 0.85); /* Чуть менее прозрачный белый */
+    }
+}
