@@ -604,11 +604,34 @@ nav a:hover {
     touch-action: manipulation;
 }
 
+/* ================= FAQ аккордеон ================= */
 .faq-answer {
+    display: none;
     padding: 0 24px 18px;
     color: #5c3b85;
     font-size: 0.95rem;
     line-height: 1.65;
+}
+
+.faq-item.open .faq-answer {
+    display: block;
+}
+
+.faq-question::after {
+    content: '+';
+    float: right;
+    font-size: 1.4rem;
+    color: #c026d3;
+    line-height: 1;
+    transition: transform 0.2s;
+}
+
+.faq-item.open .faq-question::after {
+    transform: rotate(45deg);
+}
+
+.faq-item.open .faq-question {
+    color: #c026d3;
 }
 
 /* ================= CTA / FORM ================= */
