@@ -5,33 +5,27 @@
     box-sizing: border-box;
 }
 
-/* Системный шрифт как fallback — страница читается ДО загрузки Inter */
 body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background: #f8f1fc;
     color: #3a1f5c;
     line-height: 1.6;
-    /* Убрали gradient на body — он пересчитывается при каждом скролле */
 }
 
 /* ================= ЗВЁЗДЫ ================= */
 .stars-overlay {
     position: fixed;
-    inset: 0; /* shorthand вместо top/left/width/height */
+    inset: 0;
     z-index: 0;
     pointer-events: none;
     overflow: hidden;
     opacity: 0.15;
-    /* will-change подсказывает браузеру вынести слой на GPU */
-    will-change: opacity;
 }
 
 .star {
     position: absolute;
     border-radius: 50%;
     background: #9f4bff;
-    /* contain:strict изолирует перерисовку звёзд от остальной страницы */
-    contain: strict;
 }
 
 @keyframes starTwinkle {
@@ -39,16 +33,15 @@ body {
     100% { opacity: 1;   transform: scale(1.4); }
 }
 
-/* Анимации отключаем если пользователь просил «меньше движения» */
 @media (prefers-reduced-motion: reduce) {
     .star { animation: none !important; }
     .card, .certificate-item, .channel-card,
     .btn, .reveal { transition: none !important; }
 }
 
-/* На мобиле звёзды скрыты через JS (isMobile), но CSS — страховка */
+/* Звёзды скрыты на мобиле */
 @media (max-width: 768px) {
-    .stars-overlay { display: none; }
+    .stars-overlay { display: none !important; }
 }
 
 /* ================= LAYOUT ================= */
@@ -88,7 +81,6 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    /* backdrop-filter дорогой — только на десктопе */
     background: rgba(255, 255, 255, 0.97);
     border-bottom: 1px solid rgba(192, 132, 252, 0.2);
     z-index: 1000;
@@ -131,7 +123,6 @@ nav a {
     font-size: 0.9rem;
     color: #3a1f5c;
     border-radius: 6px;
-    /* transition только на color — дешевле чем all */
     transition: color 0.2s, background 0.2s;
 }
 
@@ -160,14 +151,12 @@ nav a:hover {
     padding: 100px 0 60px;
     z-index: 1;
     overflow: hidden;
-    /* Градиент только на hero, не на всём body */
     background: linear-gradient(160deg, #fdf4ff 0%, #f3e8ff 60%, #ede9fe 100%);
 }
 
 .hero-overlay {
     position: absolute;
     inset: 0;
-    /* Убрали тяжёлый backdrop-filter если был */
     pointer-events: none;
     z-index: 0;
 }
@@ -182,7 +171,7 @@ nav a:hover {
 }
 
 .hero h1 {
-    font-size: clamp(2rem, 5vw, 3rem); /* адаптивный размер без медиа-запросов */
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 900;
     line-height: 1.15;
     color: #3a1f5c;
@@ -192,7 +181,6 @@ nav a:hover {
     color: #c026d3;
 }
 
-.hero > .container > .hero-content > .hero-text > p,
 .hero-text > p {
     margin-top: 18px;
     font-size: 1.15rem;
@@ -206,14 +194,12 @@ nav a:hover {
     flex-wrap: wrap;
 }
 
-/* Блок "о себе" в герое */
 .hero-about {
     margin-top: 35px;
     padding: 24px;
     background: rgba(255, 255, 255, 0.75);
     border-radius: 18px;
     border: 1px solid rgba(192, 132, 252, 0.2);
-    /* НЕТ backdrop-filter — он очень дорогой на мобиле */
 }
 
 .hero-about-text {
@@ -240,7 +226,6 @@ nav a:hover {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    /* Высота совпадает с hero */
     min-height: 600px;
 }
 
@@ -254,32 +239,35 @@ nav a:hover {
     border-radius: 0;
     position: relative;
     z-index: 1;
-
-    /* Маска — плавное исчезновение по всем краям */
     -webkit-mask-image:
-        linear-gradient(to bottom,  transparent 0%,  black 8%, black 85%, transparent 100%),
-        linear-gradient(to right,   transparent 0%,  black 8%, black 92%, transparent 100%),
-        linear-gradient(to top,     transparent 0%,  black 5%),
-        linear-gradient(to left,    transparent 0%,  black 5%);
-
-    /* Объединяем все маски через luminance */
+        linear-gradient(to bottom, transparent 0%, black 8%, black 85%, transparent 100%),
+        linear-gradient(to right,  transparent 0%, black 8%, black 92%, transparent 100%),
+        linear-gradient(to top,    transparent 0%, black 5%),
+        linear-gradient(to left,   transparent 0%, black 5%);
     -webkit-mask-composite: destination-in;
     mask-image:
-        linear-gradient(to bottom,  transparent 0%,  black 8%, black 85%, transparent 100%),
-        linear-gradient(to right,   transparent 0%,  black 8%, black 92%, transparent 100%),
-        linear-gradient(to top,     transparent 0%,  black 5%),
-        linear-gradient(to left,    transparent 0%,  black 5%);
+        linear-gradient(to bottom, transparent 0%, black 8%, black 85%, transparent 100%),
+        linear-gradient(to right,  transparent 0%, black 8%, black 92%, transparent 100%),
+        linear-gradient(to top,    transparent 0%, black 5%),
+        linear-gradient(to left,   transparent 0%, black 5%);
     mask-composite: intersect;
 }
 
-/* Десктоп — фото справа, текст слева */
 @media (min-width: 993px) {
+    .hero {
+        padding: 130px 0 80px;
+    }
+
     .hero-content {
         display: grid;
         grid-template-columns: 1fr 1fr;
         align-items: center;
         gap: 40px;
         min-height: calc(100vh - 80px);
+    }
+
+    .hero-text {
+        max-width: 100%;
     }
 
     .hero-photo-wrap {
@@ -289,13 +277,10 @@ nav a:hover {
 
     .hero-photo {
         max-width: 100%;
-        /* На десктопе фото растягивается на всю высоту колонки */
         height: 85vh;
         max-height: 800px;
         object-fit: cover;
         object-position: center top;
-
-        /* Маска с более мягким переходом на десктопе */
         -webkit-mask-image:
             linear-gradient(to bottom, transparent 0%, black 5%, black 88%, transparent 100%),
             linear-gradient(to right,  transparent 0%, black 5%, black 95%, transparent 100%),
@@ -309,7 +294,6 @@ nav a:hover {
     }
 }
 
-/* Мобиль — фото сверху, текст снизу */
 @media (max-width: 992px) {
     .hero-content {
         display: flex;
@@ -318,11 +302,10 @@ nav a:hover {
     }
 
     .hero-photo-wrap {
-        order: -1; /* фото идёт ПЕРВЫМ */
+        order: -1;
         min-height: auto;
-        width: 100%;
-        margin: 0 -20px;
         width: calc(100% + 40px);
+        margin: 0 -20px;
     }
 
     .hero-photo {
@@ -332,8 +315,6 @@ nav a:hover {
         max-height: 420px;
         object-fit: cover;
         object-position: center 15%;
-
-        /* На мобиле — плавный переход только снизу и по бокам */
         -webkit-mask-image:
             linear-gradient(to bottom, black 60%, transparent 100%),
             linear-gradient(to right,  transparent 0%, black 10%, black 90%, transparent 100%);
@@ -363,11 +344,8 @@ nav a:hover {
     display: inline-block;
     border: none;
     cursor: pointer;
-    /* transform — на GPU, не вызывает reflow */
     transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-    /* touch-action убирает задержку 300ms на мобиле */
     touch-action: manipulation;
-    /* Минимальная зона касания 44px по рекомендации Apple/Google */
     min-height: 44px;
     line-height: 1.4;
 }
@@ -386,9 +364,7 @@ nav a:hover {
     color: white;
 }
 
-.btn-primary:hover {
-    background: #a21ab8;
-}
+.btn-primary:hover { background: #a21ab8; }
 
 .btn-accent {
     background: linear-gradient(135deg, #c026d3, #7c3aed);
@@ -404,9 +380,7 @@ nav a:hover {
     color: white;
 }
 
-.btn-green:hover {
-    background: #15803d;
-}
+.btn-green:hover { background: #15803d; }
 
 .btn-outline {
     border: 2px solid #c026d3;
@@ -442,7 +416,6 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    /* transition только нужных свойств */
     transition: transform 0.25s, box-shadow 0.25s;
 }
 
@@ -517,7 +490,6 @@ nav a:hover {
     height: 200px;
     object-fit: cover;
     display: block;
-    /* Резервируем место — нет прыжков при загрузке */
     background: #f3e8ff;
 }
 
@@ -569,21 +541,10 @@ nav a:hover {
     box-shadow: 0 16px 36px rgba(0,0,0,0.2);
 }
 
-.channel-card h3 {
-    font-size: 1.1rem;
-    color: white;
-}
+.channel-card h3 { font-size: 1.1rem; color: white; }
+.channel-card p  { font-size: 0.85rem; opacity: 0.85; color: white; }
 
-.channel-card p {
-    font-size: 0.85rem;
-    opacity: 0.85;
-    color: white;
-}
-
-.channel-svg {
-    width: 48px;
-    height: 48px;
-}
+.channel-svg { width: 48px; height: 48px; }
 
 .channel-telegram  { background: linear-gradient(135deg, #229ED9, #1a7db0); }
 .channel-instagram { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
@@ -610,7 +571,6 @@ nav a:hover {
     gap: 12px;
 }
 
-/* Большой отзыв (Наталья) на всю ширину */
 .review-chat {
     grid-column: 1 / -1;
 }
@@ -699,9 +659,7 @@ nav a:hover {
     border-bottom: 1px solid rgba(192, 132, 252, 0.15);
 }
 
-.chat-forward-icon {
-    font-size: 1rem;
-}
+.chat-forward-icon { font-size: 1rem; }
 
 /* ================= FAQ ================= */
 .faq-item {
@@ -719,11 +677,29 @@ nav a:hover {
     color: #3a1f5c;
     cursor: pointer;
     font-size: 1rem;
-    /* touch-action для быстрого отклика */
     touch-action: manipulation;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* ================= FAQ аккордеон ================= */
+.faq-question::after {
+    content: '+';
+    font-size: 1.4rem;
+    color: #c026d3;
+    line-height: 1;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+}
+
+.faq-item.open .faq-question::after {
+    transform: rotate(45deg);
+}
+
+.faq-item.open .faq-question {
+    color: #c026d3;
+}
+
 .faq-answer {
     display: none;
     padding: 0 24px 18px;
@@ -734,23 +710,6 @@ nav a:hover {
 
 .faq-item.open .faq-answer {
     display: block;
-}
-
-.faq-question::after {
-    content: '+';
-    float: right;
-    font-size: 1.4rem;
-    color: #c026d3;
-    line-height: 1;
-    transition: transform 0.2s;
-}
-
-.faq-item.open .faq-question::after {
-    transform: rotate(45deg);
-}
-
-.faq-item.open .faq-question {
-    color: #c026d3;
 }
 
 /* ================= CTA / FORM ================= */
@@ -771,14 +730,12 @@ nav a:hover {
     padding: 14px 18px;
     border: 2px solid rgba(192, 132, 252, 0.3);
     border-radius: 12px;
-    font-size: 1rem;
     font-family: inherit;
     color: #3a1f5c;
     background: white;
-    /* Убираем outline по умолчанию, добавляем свой */
     outline: none;
     transition: border-color 0.2s;
-    /* Запрещаем iOS масштабировать при фокусе — очень важно! */
+    /* Важно! Запрещает iOS зумить при фокусе на input */
     font-size: max(16px, 1rem);
 }
 
@@ -829,13 +786,9 @@ nav a:hover {
     background: #25d366;
     box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
     transition: transform 0.2s, box-shadow 0.2s;
-    /* Иконка WhatsApp через CSS — не нужна картинка */
     text-decoration: none;
-    font-size: 28px;
-    line-height: 1;
 }
 
-/* Добавим иконку через content если нет текста внутри */
 .floating-contact a::before {
     content: '💬';
     font-size: 26px;
@@ -855,9 +808,7 @@ nav a:hover {
     line-height: 1.8;
 }
 
-.legal-footer p {
-    margin-bottom: 10px;
-}
+.legal-footer p { margin-bottom: 10px; }
 
 .legal-footer a {
     color: #d8b4fe;
@@ -874,36 +825,39 @@ nav a:hover {
     opacity: 0.7;
 }
 
-/* ================= REVEAL ANIMATION ================= */
+/* ================= REVEAL ================= */
+/*
+   КЛЮЧЕВОЕ ИСПРАВЛЕНИЕ:
+   На мобиле reveal сразу видимый — не ждёт JS.
+   Анимация только на десктопе где JS быстрый.
+*/
 .reveal {
+    /* По умолчанию — сразу видно (для мобиля и медленных устройств) */
+    opacity: 1;
+    transform: none;
+}
+
+/* Анимацию включаем ТОЛЬКО если JS добавил класс js-reveal-ready на html */
+.js-reveal-ready .reveal {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.reveal.visible {
+.js-reveal-ready .reveal.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* ================= RESPONSIVE ================= */
-@media (min-width: 993px) {
-    .hero {
-        padding: 130px 0 80px;
-    }
-
-    .hero-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: start;
-        gap: 60px;
-    }
-
-    .hero-text {
-        max-width: 100%;
+/* На мобиле — анимация проще и быстрее */
+@media (max-width: 768px) {
+    .js-reveal-ready .reveal {
+        transform: none; /* только opacity, без движения */
+        transition: opacity 0.35s ease;
     }
 }
 
+/* ================= RESPONSIVE ================= */
 @media (max-width: 992px) {
     h2 { font-size: 2rem; }
 
@@ -920,20 +874,14 @@ nav a:hover {
         justify-content: center;
     }
 
-    .header-phone span {
-        display: none; /* Скрываем текст номера, оставляем только кнопку */
-    }
+    .header-phone span { display: none; }
 
-    .cards {
-        grid-template-columns: 1fr;
-    }
+    .cards { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
     .section { padding: 60px 0; }
-
     h2 { font-size: 1.75rem; }
-
     .hero { padding: 90px 0 50px; }
 
     .hero-buttons {
@@ -945,7 +893,6 @@ nav a:hover {
         text-align: center;
     }
 
-    /* Убираем дорогой backdrop-filter на мобиле */
     header,
     .hero-about,
     .card,
@@ -958,64 +905,30 @@ nav a:hover {
         -webkit-backdrop-filter: none !important;
     }
 
-    /* Отключаем hover-анимации на touch-устройствах */
-    .card:hover,
-    .certificate-item:hover,
-    .channel-card:hover {
-        transform: none;
-        box-shadow: 0 4px 16px rgba(192, 38, 211, 0.07);
+    /* Отключаем hover на touch */
+    @media (hover: none) {
+        .card:hover,
+        .certificate-item:hover,
+        .channel-card:hover,
+        .btn:hover {
+            transform: none !important;
+            box-shadow: none !important;
+        }
     }
 
-    .channels-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .reviews-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Большой отзыв — убираем растяжку на всю ширину */
-    .review-chat {
-        grid-column: auto;
-    }
-
-    .certificates-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Звёзды уже скрыты через display:none выше */
-
-    /* Упрощаем reveal на мобиле — меньше работы для GPU */
-    .reveal {
-        transform: none;
-        transition: opacity 0.4s ease;
-    }
+    .channels-grid { grid-template-columns: 1fr 1fr; }
+    .reviews-grid  { grid-template-columns: 1fr; }
+    .review-chat   { grid-column: auto; }
+    .certificates-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
     .container { padding: 0 14px; }
-
     h2 { font-size: 1.5rem; }
-
-    .channels-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-about {
-        padding: 16px;
-    }
-
+    .channels-grid { grid-template-columns: 1fr; }
+    .hero-about { padding: 16px; }
     .card { padding: 20px; }
-
     .price { font-size: 1.6rem; }
-
-    .floating-contact {
-        bottom: 16px;
-        right: 16px;
-    }
-
-    .floating-contact a {
-        width: 52px;
-        height: 52px;
-    }
+    .floating-contact { bottom: 16px; right: 16px; }
+    .floating-contact a { width: 52px; height: 52px; }
 }
