@@ -42,23 +42,11 @@ body {
     z-index: 1;
 }
 
-/*
-    УБРАНЫ СТИЛИ ФОНА ДЛЯ .section, ЧТОБЫ БЫЛ ВИДЕН ФИОЛЕТОВЫЙ ФОН BODY
-*/
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
 }
-
-.section {
-    padding: 100px 0;
-}
-
-/*
-    УБРАНЫ СТИЛИ ФОНА ДЛЯ .section, ЧТОБЫ БЫЛ ВИДЕН ФИОЛЕТОВЫЙ ФОН BODY
-*/
 
 .center {
     text-align: center;
@@ -848,6 +836,7 @@ nav a:hover {
 
 /* ================= RESPONSIVE ================= */
 
+/* Стили для планшетов */
 @media (max-width: 992px) {
 
     .hero {
@@ -901,20 +890,32 @@ nav a:hover {
 
 }
 
-/* Отключаем тяжелые эффекты на мобильных */
+/* Стили для телефонов */
 @media (max-width: 768px) {
-    .hero {
-        background-image: none; /* <-- САМОЕ ВАЖНОЕ! */
-    }
-}
-
-/* Отключаем тяжелые эффекты на мобильных */
-@media (max-width: 768px) {
+    /* Отключаем фон и центрируем главный блок */
     .hero {
         background-image: none;
+        padding-top: 150px;
+    }
+    .hero-text {
+        padding-left: 0;
+        max-width: 100%;
+        text-align: center;
+    }
+    .hero-about {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-buttons {
+        justify-content: center;
     }
 
-    /* Убираем размытие и заменяем его на простой полупрозрачный фон */
+    /* На совсем маленьких экранах делаем каналы в одну колонку */
+    .channels-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Убираем ресурсоемкое размытие (backdrop-filter) */
     header,
     .card,
     .certificate-item,
@@ -923,11 +924,16 @@ nav a:hover {
     .review-screenshot,
     .review-chat,
     .faq-item {
-        backdrop-filter: none; /* Отключаем размытие */
+        backdrop-filter: none;
     }
 
-    /* Можно задать альтернативный фон, чтобы сохранить вид */
-    .card, .certificate-item, .faq-item, .channel-card, .review-screenshot, .review-chat {
-        background: rgba(255, 255, 255, 0.85); /* Чуть менее прозрачный белый */
+    /* Задаем альтернативный фон для элементов, у которых убрали размытие */
+    .card,
+    .certificate-item,
+    .faq-item,
+    .channel-card,
+    .review-screenshot,
+    .review-chat {
+        background: rgba(255, 255, 255, 0.85);
     }
 }
