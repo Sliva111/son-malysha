@@ -234,6 +234,125 @@ nav a:hover {
     font-size: 0.98rem;
 }
 
+/* ================= HERO PHOTO ================= */
+.hero-photo-wrap {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    /* Высота совпадает с hero */
+    min-height: 600px;
+}
+
+.hero-photo {
+    display: block;
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 0;
+    position: relative;
+    z-index: 1;
+
+    /* Маска — плавное исчезновение по всем краям */
+    -webkit-mask-image:
+        linear-gradient(to bottom,  transparent 0%,  black 8%, black 85%, transparent 100%),
+        linear-gradient(to right,   transparent 0%,  black 8%, black 92%, transparent 100%),
+        linear-gradient(to top,     transparent 0%,  black 5%),
+        linear-gradient(to left,    transparent 0%,  black 5%);
+
+    /* Объединяем все маски через luminance */
+    -webkit-mask-composite: destination-in;
+    mask-image:
+        linear-gradient(to bottom,  transparent 0%,  black 8%, black 85%, transparent 100%),
+        linear-gradient(to right,   transparent 0%,  black 8%, black 92%, transparent 100%),
+        linear-gradient(to top,     transparent 0%,  black 5%),
+        linear-gradient(to left,    transparent 0%,  black 5%);
+    mask-composite: intersect;
+}
+
+/* Десктоп — фото справа, текст слева */
+@media (min-width: 993px) {
+    .hero-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 40px;
+        min-height: calc(100vh - 80px);
+    }
+
+    .hero-photo-wrap {
+        min-height: 100%;
+        align-items: center;
+    }
+
+    .hero-photo {
+        max-width: 100%;
+        /* На десктопе фото растягивается на всю высоту колонки */
+        height: 85vh;
+        max-height: 800px;
+        object-fit: cover;
+        object-position: center top;
+
+        /* Маска с более мягким переходом на десктопе */
+        -webkit-mask-image:
+            linear-gradient(to bottom, transparent 0%, black 5%, black 88%, transparent 100%),
+            linear-gradient(to right,  transparent 0%, black 5%, black 95%, transparent 100%),
+            linear-gradient(to left,   transparent 0%, black 5%);
+        -webkit-mask-composite: destination-in;
+        mask-image:
+            linear-gradient(to bottom, transparent 0%, black 5%, black 88%, transparent 100%),
+            linear-gradient(to right,  transparent 0%, black 5%, black 95%, transparent 100%),
+            linear-gradient(to left,   transparent 0%, black 5%);
+        mask-composite: intersect;
+    }
+}
+
+/* Мобиль — фото сверху, текст снизу */
+@media (max-width: 992px) {
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .hero-photo-wrap {
+        order: -1; /* фото идёт ПЕРВЫМ */
+        min-height: auto;
+        width: 100%;
+        margin: 0 -20px;
+        width: calc(100% + 40px);
+    }
+
+    .hero-photo {
+        width: 100%;
+        max-width: 100%;
+        height: 65vw;
+        max-height: 420px;
+        object-fit: cover;
+        object-position: center 15%;
+
+        /* На мобиле — плавный переход только снизу и по бокам */
+        -webkit-mask-image:
+            linear-gradient(to bottom, black 60%, transparent 100%),
+            linear-gradient(to right,  transparent 0%, black 10%, black 90%, transparent 100%);
+        -webkit-mask-composite: destination-in;
+        mask-image:
+            linear-gradient(to bottom, black 60%, transparent 100%),
+            linear-gradient(to right,  transparent 0%, black 10%, black 90%, transparent 100%);
+        mask-composite: intersect;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-photo {
+        height: 75vw;
+        max-height: 340px;
+        object-position: center 10%;
+    }
+}
+
 /* ================= BUTTONS ================= */
 .btn {
     padding: 13px 28px;
