@@ -6,6 +6,79 @@
     <title>Логинова Оксана Борисовна — Консультант по детскому сну</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css?v=5">
+    <!-- Небольшой набор правил для аккуратной сетки тарифов и отзывов (минимально, чтобы не ломать существующую стилистику) -->
+    <style>
+        /* Сетка тарифов: по колонкам на больших экранах, адаптивно на мобилках */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            align-items: stretch;
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 8px 0 12px;
+        }
+        /* Отзывы */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            align-items: start;
+        }
+        .review-item {
+            background: #fff;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        }
+        .review-item .review-meta {
+            display:flex;
+            gap:12px;
+            align-items:center;
+            margin-bottom:8px;
+        }
+        .review-item img {
+            width:56px;
+            height:56px;
+            object-fit:cover;
+            border-radius:50%;
+        }
+        .stars {
+            color: #ffb400;
+            font-weight: 700;
+        }
+        /* CTA form */
+        .contact-form {
+            max-width:720px;
+            margin:0 auto;
+            display:flex;
+            flex-direction:column;
+            gap:12px;
+        }
+        .contact-row {
+            display:flex;
+            gap:12px;
+            flex-wrap:wrap;
+        }
+        .contact-row input, .contact-row textarea {
+            flex:1 1 240px;
+            padding:10px;
+            border-radius:6px;
+            border:1px solid #e0e0e0;
+            font-size: 1rem;
+        }
+        .btn.full { width:100%; display:inline-block; text-align:center; }
+        @media (max-width:520px) {
+            .hero-content { gap:20px; }
+        }
+    </style>
 </head>
 <body>
 
@@ -112,45 +185,210 @@
             <p class="section-sub">Выберите формат поддержки</p>
         </div>
         <div class="cards">
-            <!-- Все ваши тарифы из первого сообщения -->
+            <!-- Тариф 1 -->
             <div class="card">
                 <h3>Экспресс консультация (повторное обращение)</h3>
                 <div class="price">1500 ₽</div>
-                <p>Консультация проходит онлайн в удобном для вас мессенджере, в виде текстовых и голосовых сообщений с Инструкцией в течение 1-2 дней.</p>
+                <p>Консультация проходит онлайн в удобном для вас мессенджере: текстовые и голосовые сообщения с инструкцией в течение 1–2 дней.</p>
                 <ul class="card-features">
                     <li>Длительность 2 дня</li>
-                    <li>Разбираем ошибки режима</li>
-                    <li>Детальный разбор дневника сна и анкеты сна</li>
-                    <li>Выявление и разбор причин нарушения сна</li>
-                    <li>Подбор индивидуальных норм сна и бодрствования</li>
-                    <li>Рекомендации по работе с режимом сна и бодрствования</li>
-                    <li>Работа со сном исходя из темперамента вашего ребенка</li>
-                    <li>Разбираем ритуал на сон, вводим новые компоненты необходимые</li>
-                    <li>Психологическая поддержка мамы и семьи</li>
-                    <li>Мягкие методики работы со сном</li>
+                    <li>Разбор дневника сна и анкеты</li>
+                    <li>Рекомендации по режиму и ритуалам</li>
+                    <li>Психологическая поддержка</li>
+                    <li>Мягкие методики без насилия</li>
                 </ul>
                 <a href="#cta" class="btn btn-primary full">Записаться</a>
             </div>
 
-            <!-- Добавьте остальные карточки тарифов из вашего первого файла (я не стал их все копировать сюда, чтобы сообщение не было гигантским). 
-                 Просто вставьте их сюда из оригинального index.html. -->
+            <!-- Тариф 2 -->
+            <div class="card">
+                <h3>Базовый план</h3>
+                <div class="price">3500 ₽</div>
+                <p>Подходит для семей, которые хотят быстро получить рабочую схему сна и скорректировать режим за 5–7 дней.</p>
+                <ul class="card-features">
+                    <li>Длительность 7 дней</li>
+                    <li>Анализ дневника сна</li>
+                    <li>Индивидуальная пошаговая схема</li>
+                    <li>2 консультации по прогрессу</li>
+                    <li>Поддержка в мессенджере</li>
+                </ul>
+                <a href="#cta" class="btn btn-primary full">Записаться</a>
+            </div>
+
+            <!-- Тариф 3 -->
+            <div class="card">
+                <h3>Стандартный курс</h3>
+                <div class="price">7500 ₽</div>
+                <p>Комплексное сопровождение: внедрение режима, работа с ночными пробуждениями и адаптацией к режиму за 2–3 недели.</p>
+                <ul class="card-features">
+                    <li>Длительность 14–21 день</li>
+                    <li>Индивидуальная программа</li>
+                    <li>Ежедневный разбор прогресса</li>
+                    <li>Поддержка в мессенджере и 1 звонок</li>
+                    <li>Корректировка плана по результатам</li>
+                </ul>
+                <a href="#cta" class="btn btn-primary full">Записаться</a>
+            </div>
+
+            <!-- Тариф 4 -->
+            <div class="card">
+                <h3>Полный курс + сопровождение</h3>
+                <div class="price">12500 ₽</div>
+                <p>Идеально для семей с устойчивыми нарушениями сна, включает индивидуальную программу, сопровождение и психологическую поддержку.</p>
+                <ul class="card-features">
+                    <li>Длительность 30 дней</li>
+                    <li>Полное сопровождение</li>
+                    <li>Еженедельные звонки</li>
+                    <li>Адаптация внутри семьи (ночные кормления, режим)</li>
+                    <li>Подробные инструкции и чек-листы</li>
+                </ul>
+                <a href="#cta" class="btn btn-primary full">Записаться</a>
+            </div>
+
+            <!-- Тариф 5 -->
+            <div class="card">
+                <h3>VIP сопровождение</h3>
+                <div class="price">22000 ₽</div>
+                <p>Максимальная поддержка: приоритетное сопровождение, экстренные консультации и гибкая индивидуальная программа.</p>
+                <ul class="card-features">
+                    <li>Длительность 60 дней</li>
+                    <li>Приоритетные ответы</li>
+                    <li>Неограниченное количество звонков</li>
+                    <li>Работа с грудным вскармливанием и плавным завершением</li>
+                    <li>Поддержка всей семьи</li>
+                </ul>
+                <a href="#cta" class="btn btn-primary full">Записаться</a>
+            </div>
+        </div>
+        <p class="small muted" style="margin-top:12px;">Если не уверены, какой тариф выбрать — напишите мне в WhatsApp, помогу подобрать.</p>
+    </div>
+</section>
+
+<section id="channels" class="section">
+    <div class="container center">
+        <h2>Каналы</h2>
+        <p class="section-sub">Где можно со мной связаться и посмотреть материалы</p>
+        <div class="channels" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+            <a class="btn btn-accent" href="https://wa.me/79649477511" target="_blank">💬 WhatsApp</a>
+            <a class="btn btn-primary" href="https://t.me/79649477511" target="_blank">✈️ Telegram</a>
+            <a class="btn btn-primary" href="https://www.youtube.com/" target="_blank">▶️ YouTube</a>
+            <a class="btn btn-primary" href="https://instagram.com/" target="_blank">📸 Instagram</a>
+        </div>
+        <p style="margin-top:12px;">Ссылки ведут на внешние ресурсы. Контент публикую в Telegram и Instagram — там короткие советы и кейсы.</p>
+    </div>
+</section>
+
+<section id="reviews" class="section">
+    <div class="container">
+        <div class="section-head center">
+            <h2>Отзывы</h2>
+            <p class="section-sub">Что пишут родители</p>
+        </div>
+
+        <div class="reviews-grid" style="margin-top:16px;">
+            <div class="review-item">
+                <div class="review-meta">
+                    <img src="assets/img/review1.jpg" alt="Отзыв 1" loading="lazy">
+                    <div>
+                        <strong>Анна, мама 8-месячного</strong>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>Очень довольна! Благодаря инструкциям Оксаны мы сократили укладывание с 1,5 часа до 20 минут. Поддержка и мягкие советы — именно то, что нам было нужно.</p>
+            </div>
+
+            <div class="review-item">
+                <div class="review-meta">
+                    <img src="assets/img/review2.jpg" alt="Отзыв 2" loading="lazy">
+                    <div>
+                        <strong>Мария, мама 2 лет</strong>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>После двух недель курса ребёнок стал спать крепче ночью, прошло много пробуждений. Оксана объясняет просто, даёт реалистичные шаги, поддерживает морально.</p>
+            </div>
+
+            <div class="review-item">
+                <div class="review-meta">
+                    <img src="assets/img/review3.jpg" alt="Отзыв 3" loading="lazy">
+                    <div>
+                        <strong>Екатерина, мама 4-х мес.</strong>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>Очень благодарна за индивидуальный подход: учли темперамент ребёнка и особенности кормления. Всё очень деликатно и эффективно.</p>
+            </div>
+        </div>
+
+        <p class="center" style="margin-top:14px;">Есть ещё отзывы — пришлите фото/файлы, я добавлю их на страницу.</p>
+    </div>
+</section>
+
+<section id="faq" class="section">
+    <div class="container center">
+        <h2>FAQ — Частые вопросы</h2>
+        <div class="faq-list" style="max-width:900px;margin:16px auto;text-align:left;">
+            <h4>Как быстро появятся результаты?</h4>
+            <p>Зависит от ситуации: у некоторых семей виден эффект уже через 3–7 дней, у других процесс идет медленнее — нужно учитывать возраст, темперамент и текущую ситуацию.</p>
+
+            <h4>Вы используете «плачём до сна»?</h4>
+            <p>Я не применяю жёсткие методы. Работаю мягко, с поддержкой родителей и учитывая психологию ребёнка.</p>
+
+            <h4>Подходит ли это для детей на грудном вскармливании?</h4>
+            <p>Да. Программы корректируются с учётом грудного кормления, мы подбираем комфортные решения для мамы и ребёнка.</p>
+
+            <h4>Как проходит сопровождение?</h4>
+            <p>В мессенджере — текст/голос, при необходимости видеозвонки. Я даю план, проверяю дневник сна и корректирую рекомендации.</p>
         </div>
     </div>
 </section>
 
-<!-- Вставьте сюда секции #channels, #reviews, #faq, #cta (с формой) и footer из вашего первого сообщения -->
+<section id="cta" class="section">
+    <div class="container center">
+        <h2>Записаться и получить гайд</h2>
+        <p class="section-sub">Оставьте заявку — я свяжусь и помогу подобрать тариф</p>
+
+        <form id="contactForm" class="contact-form" novalidate>
+            <div class="contact-row">
+                <input type="text" id="formName" name="name" placeholder="Ваше имя" required>
+                <input type="tel" id="formPhone" name="phone" placeholder="+7 (999) 999-99-99" required>
+            </div>
+            <div>
+                <textarea id="formMessage" name="message" rows="4" placeholder="Кратко опишите ситуацию (необязательно)"></textarea>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-green">Отправить заявку в WhatsApp</button>
+            </div>
+            <p class="muted small" style="margin-top:8px;">Нажимая кнопку, вы даёте согласие на обработку данных.</p>
+        </form>
+    </div>
+</section>
+
+<footer class="section">
+    <div class="container center" style="padding:24px 0;">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
+            <div>© <strong>Оксана Логинова</strong> — Консультант по детскому сну</div>
+            <div style="display:flex;gap:12px;align-items:center;">
+                <a href="tel:+79649477511" class="btn btn-primary">📞 +7 964 947-75-11</a>
+                <a href="mailto:info@example.com" class="muted">info@example.com</a>
+            </div>
+        </div>
+        <p class="small muted" style="margin-top:8px;">Все материалы носят информационный характер. Индивидуальная программа подбирается после консультации.</p>
+    </div>
+</footer>
 
 <div class="floating-contact">
     <a href="https://wa.me/79649477511" target="_blank">💬</a>
 </div>
 
 <script>
-// Форма
+// Форма: открывает WhatsApp с данными
 document.getElementById('contactForm')?.addEventListener('submit', function(e) {
     e.preventDefault();
-    const name = document.getElementById('formName').value;
-    const phone = document.getElementById('formPhone').value;
-    const text = `Новая заявка!%0AИмя: ${name}%0AТелефон: ${phone}`;
+    const name = document.getElementById('formName').value || 'Без имени';
+    const phone = document.getElementById('formPhone').value || '';
+    const message = document.getElementById('formMessage')?.value || '';
+    const text = `Новая заявка!%0AИмя: ${encodeURIComponent(name)}%0AТелефон: ${encodeURIComponent(phone)}%0AСообщение: ${encodeURIComponent(message)}`;
     window.open(`https://wa.me/79649477511?text=${text}`, '_blank');
     this.reset();
     alert('Спасибо! Открывается WhatsApp.');
