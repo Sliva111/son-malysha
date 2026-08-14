@@ -1,498 +1,402 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Логинова Оксана Борисовна — Консультант по детскому сну</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=5">
-    <!-- Небольшой набор правил для аккуратной сетки тарифов и отзывов (минимально, чтобы не ломать существующую стилистику) -->
-    <style>
-        /* Сетка тарифов: по колонкам на больших экранах, адаптивно на мобилках */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            align-items: start; /* карточки растут по контенту */
-        }
-        .card {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            background: linear-gradient(180deg, #fff, #fbf7ff); /* мягкий фон */
-            border: 1px solid rgba(115,41,178,0.06);
-            box-shadow: 0 10px 30px rgba(115,41,178,0.06);
-            border-radius: 14px;
-            padding: 20px;
-            color: #2b1b3a;
-        }
-        .card h3 {
-            color: #5b2b9a;
-            margin: 0 0 8px;
-            font-size: 1.05rem;
-        }
-        .card .price {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: #3b0b66;
-            margin-bottom: 8px;
-        }
-        .card p {
-            margin: 6px 0 12px;
-            line-height: 1.45;
-            color: #3b2b4a;
-        }
-        .card ul {
-            margin: 0 0 14px 18px;
-            padding: 0;
-            color: #3b2b4a;
-        }
-        .card ul li {
-            margin: 6px 0;
-        }
-        /* Кнопка занимает всю ширину карточки и фиксирована снизу (если контент короче) */
-        .btn.full { 
-            width: 100%; 
-            display: inline-block; 
-            text-align: center; 
-            margin-top: auto; 
-            border-radius: 28px;
-            padding: 12px 14px;
-        }
-        /* Переопределение цвета для кнопок записи (яркий градиент) */
-        .btn.btn-primary, .btn.btn-accent, .btn.btn-green {
-            background: linear-gradient(90deg, #9b39e6, #ff5ec7);
-            color: #fff;
-            border: none;
-            box-shadow: 0 6px 18px rgba(153,57,214,0.18);
-            text-decoration: none;
-        }
-        /* Отзывы */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            align-items: start;
-        }
-        .review-item {
-            background: #fff;
-            border-radius: 12px;
-            padding: 16px;
-            box-shadow: 0 6px 18px rgba(40,10,80,0.06);
-            border: 1px solid rgba(115,41,178,0.04);
-        }
-        .review-item .review-meta {
-            display:flex;
-            gap:12px;
-            align-items:center;
-            margin-bottom:8px;
-        }
-        .review-item img {
-            width:56px;
-            height:56px;
-            object-fit:cover;
-            border-radius:50%;
-        }
-        .stars {
-            color: #ffb400;
-            font-weight: 700;
-        }
-        /* CTA form */
-        .contact-form {
-            max-width:720px;
-            margin:0 auto;
-            display:flex;
-            flex-direction:column;
-            gap:12px;
-        }
-        .contact-row {
-            display:flex;
-            gap:12px;
-            flex-wrap:wrap;
-        }
-        .contact-row input, .contact-row textarea {
-            flex:1 1 240px;
-            padding:10px;
-            border-radius:6px;
-            border:1px solid #e0e0e0;
-            font-size: 1rem;
-        }
-        @media (max-width:520px) {
-            .hero-content { gap:20px; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Логинова Оксана Борисовна — Консультант по детскому сну</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=6">
 </head>
 <body>
 
 <header>
-    <div class="container nav">
-        <div class="logo">🌙 Сон детей</div>
-        <nav>
-            <a href="#about">О специалисте</a>
-            <a href="#services">Тарифы</a>
-            <a href="#education">Образование</a>
-            <a href="#channels">Каналы</a>
-            <a href="#reviews">Отзывы</a>
-            <a href="#faq">FAQ</a>
-            <a href="#cta">Контакты</a>
-        </nav>
-        <div class="header-phone">
-            <a href="tel:+79649477511" class="btn btn-primary">📞 Позвонить</a>
-            <span>+7 964 947-75-11</span>
-        </div>
+  <div class="container nav">
+    <div class="logo">🌙 Сон детей</div>
+    <nav>
+      <a href="#about">О специалисте</a>
+      <a href="#services">Тарифы</a>
+      <a href="#education">Образование</a>
+      <a href="#channels">Каналы</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#faq">FAQ</a>
+      <a href="#privacy">Политика конфиденциальности</a>
+      <a href="#cta">Контакты</a>
+    </nav>
+    <div class="header-phone">
+      <a href="tel:+79649477511" class="btn btn-primary">📞 Позвонить</a>
+      <span class="phone-text">+7 964 947-75-11</span>
     </div>
+  </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-    <div class="container hero-content">
-        <div class="hero-text">
-            <h1>Мама, ты тоже хочешь <span>спать?</span></h1>
-            <p>Наладим сон малыша мягко и без слёз. Индивидуальный подход для каждой семьи.</p>
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>Мама, ты тоже хочешь <span>спать?</span></h1>
+      <p class="lead">Наладим сон малыша мягко и без слёз. Индивидуальный подход для каждой семьи.</p>
 
-            <div class="hero-buttons">
-                <a href="https://wa.me/79649477511" target="_blank" class="btn btn-accent">💬 WhatsApp</a>
-                <a href="https://t.me/79649477511" target="_blank" class="btn btn-primary">✈️ Telegram</a>
-                <a href="https://max.ru/add?phone=79649477511" target="_blank" class="btn btn-primary">💬 Макс</a>
-                <a href="#cta" class="btn btn-green">Гайд в подарок</a>
-            </div>
+      <div class="hero-buttons">
+        <a href="https://wa.me/79649477511" target="_blank" class="btn btn-accent">💬 WhatsApp</a>
+        <a href="https://t.me/79649477511" target="_blank" class="btn btn-primary">✈️ Telegram</a>
+        <a href="https://max.ru/add?phone=79649477511" target="_blank" class="btn btn-primary">💬 Макс</a>
+        <a href="#cta" class="btn btn-green" id="guideBtn">Гайд в подарок</a>
+      </div>
 
-            <div class="hero-about">
-                <p class="hero-about-text">
-                    Меня зовут Оксана Логинова.<br><br>
-                    Я — сертифицированный консультант по детскому сну, дипломированный дошкольный педагог и детский психолог.<br><br>
-                    <strong>Со мной вы сможете:</strong>
-                </p>
-                <ul class="hero-about-list">
-                    <li>сократить время укладывания</li>
-                    <li>уменьшить ночные пробуждения</li>
-                    <li>мягко завершить грудное вскармливание</li>
-                    <li>выстроить режим без слёз и жёстких методов</li>
-                    <li>перестать жить в постоянном недосыпе и чувстве вины</li>
-                </ul>
-                <p class="hero-about-text">
-                    Я сама мама двухлетнего сына и прекрасно понимаю ваше состояние. 
-                    Работаю мягко, с поддержкой и без осуждения.
-                </p>
-            </div>
-        </div>
-
-        <img src="assets/img/hero.jpg" alt="Оксана Логинова" class="hero-image" loading="eager">
+      <div class="hero-about">
+        <p>Меня зовут Оксана Логинова.</p>
+        <p>Я — сертифицированный консультант по детскому сну, дипломированный дошкольный педагог и детский психолог.</p>
+        <strong>Со мной вы сможете:</strong>
+        <ul class="hero-about-list">
+          <li>сократить время укладывания</li>
+          <li>уменьшить ночные пробуждения</li>
+          <li>мягко завершить грудное вскармливание</li>
+          <li>выстроить режим без слёз и жёстких методов</li>
+          <li>перестать жить в постоянном недосыпе и чувстве вины</li>
+        </ul>
+      </div>
     </div>
+
+    <div class="hero-image-wrap" aria-hidden="true">
+      <picture>
+        <source srcset="assets/img/hero-1200.webp" type="image/webp">
+        <source srcset="assets/img/hero-800.jpg" type="image/jpeg">
+        <img class="hero-image" src="assets/img/hero-800.jpg" alt="Оксана Логинова" loading="eager" width="460" height="640">
+      </picture>
+    </div>
+  </div>
 </section>
 
 <section id="about" class="section">
-    <div class="container center">
-        <h2>О специалисте</h2>
-        <p class="section-sub">Логинова Оксана Борисовна — консультант по детскому сну. Помогаю семьям выстроить мягкий режим сна для малышей 0–3 лет.</p>
-    </div>
+  <div class="container center">
+    <h2>О специалисте</h2>
+    <p class="section-sub">Логинова Оксана Борисовна — консультант по детскому сну. Помогаю семьям выстроить мягкий режим сна для малышей 0–3 лет.</p>
+  </div>
 </section>
 
 <section id="education" class="section">
-    <div class="container center">
-        <h2>Образование и сертификаты</h2>
-        <div class="certificates-grid">
-            <div class="certificate-item">
-                <img src="assets/img/certificate1.jpg" alt="Сертификат" class="certificate-img" loading="lazy">
-                <div class="certificate-info">
-                    <h3>Консультант по детскому сну</h3>
-                    <p>Повышение квалификации, 200 часов</p>
-                    <p class="cert-date">АНО ДПО «НАДПО», 25 сентября 2025 г. | № 49494-у</p>
-                </div>
-            </div>
-            <div class="certificate-item">
-                <img src="assets/img/certificate2.jpg" alt="Высшее образование" class="certificate-img" loading="lazy">
-                <div class="certificate-info">
-                    <h3>Документ о высшем образовании</h3>
-                    <p>Дошкольный педагог, детский психолог</p>
-                    <p class="cert-date">Диплом предоставляется по запросу</p>
-                </div>
-            </div>
-            <div class="certificate-item">
-                <img src="assets/img/certificate3.jpg" alt="Квалификация" class="certificate-img" loading="lazy">
-                <div class="certificate-info">
-                    <h3>Документ о квалификации</h3>
-                    <p>Дополнительная профессиональная программа</p>
-                    <p class="cert-date">Лицензия № Л035-01298-77/00181484</p>
-                </div>
-            </div>
+  <div class="container center">
+    <h2>Образование и сертификаты</h2>
+    <div class="certificates-grid">
+      <div class="certificate-item">
+        <img src="assets/img/certificate1.jpg" alt="Сертификат" class="certificate-img" loading="lazy">
+        <div class="certificate-info">
+          <h3>Консультант по детскому сну</h3>
+          <p>Повышение квалификации, 200 часов</p>
+          <p class="cert-date">АНО ДПО «НАДПО», 25 сентября 2025 г. | № 49494-у</p>
         </div>
+      </div>
+      <div class="certificate-item">
+        <img src="assets/img/certificate2.jpg" alt="Высшее образование" class="certificate-img" loading="lazy">
+        <div class="certificate-info">
+          <h3>Документ о высшем образовании</h3>
+          <p>Дошкольный педагог, детский психолог</p>
+          <p class="cert-date">Диплом предоставляется по запросу</p>
+        </div>
+      </div>
+      <div class="certificate-item">
+        <img src="assets/img/certificate3.jpg" alt="Квалификация" class="certificate-img" loading="lazy">
+        <div class="certificate-info">
+          <h3>Документ о квалификации</h3>
+          <p>Дополнительная профессиональная программа</p>
+          <p class="cert-date">Лицензия № Л035-01298-77/00181484</p>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <section id="services" class="section">
-    <div class="container">
-        <div class="section-head center">
-            <h2>Тарифы</h2>
-            <p class="section-sub">Выберите формат поддержки</p>
-        </div>
-        <div class="cards">
-            <!-- Тариф 1 -->
-            <div class="card">
-                <h3>Экспресс консультация (повторное обращение)</h3>
-                <div class="price">1500 ₽</div>
-                <p>Консультация проходит онлайн в удобном для вас мессенджере: текстовые и голосовые сообщения с инструкцией в течение 1–2 дней.</p>
-                <ul class="card-features">
-                    <li>Длительность 2 дня</li>
-                    <li>Разбор дневника сна и анкеты</li>
-                    <li>Рекомендации по режиму и ритуалам</li>
-                    <li>Психологическая поддержка</li>
-                    <li>Мягкие методики без насилия</li>
-                </ul>
-                <a href="#cta" class="btn btn-primary full">Записаться</a>
-            </div>
-
-            <!-- Тариф 2 -->
-            <div class="card">
-                <h3>Базовый план</h3>
-                <div class="price">3500 ₽</div>
-                <p>Подходит для семей, которые хотят быстро получить рабочую схему сна и скорректировать режим за 5–7 дней.</p>
-                <ul class="card-features">
-                    <li>Длительность 7 дней</li>
-                    <li>Анализ дневника сна</li>
-                    <li>Индивидуальная пошаговая схема</li>
-                    <li>2 консультации по прогрессу</li>
-                    <li>Поддержка в мессенджере</li>
-                </ul>
-                <a href="#cta" class="btn btn-primary full">Записаться</a>
-            </div>
-
-            <!-- Тариф 3 -->
-            <div class="card">
-                <h3>Стандартный курс</h3>
-                <div class="price">7500 ₽</div>
-                <p>Комплексное сопровождение: внедрение режима, работа с ночными пробуждениями и адаптацией к режиму за 2–3 недели.</p>
-                <ul class="card-features">
-                    <li>Длительность 14–21 день</li>
-                    <li>Индивидуальная программа</li>
-                    <li>Ежедневный разбор прогресса</li>
-                    <li>Поддержка в мессенджере и 1 звонок</li>
-                    <li>Корректировка плана по результатам</li>
-                </ul>
-                <a href="#cta" class="btn btn-primary full">Записаться</a>
-            </div>
-
-            <!-- Тариф 4 -->
-            <div class="card">
-                <h3>Полный курс + сопровождение</h3>
-                <div class="price">12500 ₽</div>
-                <p>Идеально для семей с устойчивыми нарушениями сна, включает индивидуальную программу, сопровождение и психологическую поддержку.</p>
-                <ul class="card-features">
-                    <li>Длительность 30 дней</li>
-                    <li>Полное сопровождение</li>
-                    <li>Еженедельные звонки</li>
-                    <li>Адаптация внутри семьи (ночные кормления, режим)</li>
-                    <li>Подробные инструкции и чек-листы</li>
-                </ul>
-                <a href="#cta" class="btn btn-primary full">Записаться</a>
-            </div>
-
-            <!-- Тариф 5 -->
-            <div class="card">
-                <h3>VIP сопровождение</h3>
-                <div class="price">22000 ₽</div>
-                <p>Максимальная поддержка: приоритетное сопровождение, экстренные консультации и гибкая индивидуальная программа.</p>
-                <ul class="card-features">
-                    <li>Длительность 60 дней</li>
-                    <li>Приоритетные ответы</li>
-                    <li>Неограниченное количество звонков</li>
-                    <li>Работа с грудным вскармливанием и плавным завершением</li>
-                    <li>Поддержка всей семьи</li>
-                </ul>
-                <a href="#cta" class="btn btn-primary full">Записаться</a>
-            </div>
-        </div>
-        <p class="small muted" style="margin-top:12px;">Если не уверены, какой тариф выбрать — напишите мне в WhatsApp, помогу подобрать.</p>
+  <div class="container">
+    <div class="section-head center">
+      <h2>Тарифы</h2>
+      <p class="section-sub">Выберите формат поддержки</p>
     </div>
+
+    <div class="cards">
+      <!-- Карточки тарифов (каждая растёт по содержимому, кнопка фиксируется внизу) -->
+      <div class="card">
+        <h3>Экспресс консультация (повторное обращение)</h3>
+        <div class="price">1500 ₽</div>
+        <p>Консультация проходит онлайн в удобном для вас мессенджере: текстовые и голосовые сообщения с инструкцией в течение 1–2 дней.</p>
+        <ul class="card-features">
+          <li>Длительность 2 дня</li>
+          <li>Разбор дневника сна и анкеты</li>
+          <li>Рекомендации по режиму и ритуалам</li>
+          <li>Психологическая поддержка</li>
+          <li>Мягкие методики без насилия</li>
+        </ul>
+        <a href="#cta" class="btn btn-primary full">Записаться</a>
+      </div>
+
+      <div class="card">
+        <h3>Базовый план</h3>
+        <div class="price">3500 ₽</div>
+        <p>Подходит для семей, которые хотят быстро получить рабочую схему сна и скорректировать режим за 5–7 дней.</p>
+        <ul class="card-features">
+          <li>Длительность 7 дней</li>
+          <li>Анализ дневника сна</li>
+          <li>Индивидуальная пошаговая схема</li>
+          <li>2 консультации по прогрессу</li>
+          <li>Поддержка в мессенджере</li>
+        </ul>
+        <a href="#cta" class="btn btn-primary full">Записаться</a>
+      </div>
+
+      <div class="card">
+        <h3>Стандартный курс</h3>
+        <div class="price">7500 ₽</div>
+        <p>Комплексное сопровождение: внедрение режима, работа с ночными пробуждениями и адаптацией к режиму за 2–3 недели.</p>
+        <ul class="card-features">
+          <li>Длительность 14–21 день</li>
+          <li>Индивидуальная программа</li>
+          <li>Ежедневный разбор прогресса</li>
+          <li>Поддержка в мессенджере и 1 звонок</li>
+          <li>Корректировка плана по результатам</li>
+        </ul>
+        <a href="#cta" class="btn btn-primary full">Записаться</a>
+      </div>
+
+      <div class="card">
+        <h3>Полный курс + сопровождение</h3>
+        <div class="price">12500 ₽</div>
+        <p>Идеально для семей с устойчивыми нарушениями сна, включает индивидуальную программу, сопровождение и психологическую поддержку.</p>
+        <ul class="card-features">
+          <li>Длительность 30 дней</li>
+          <li>Полное сопровождение</li>
+          <li>Еженедельные звонки</li>
+          <li>Адаптация внутри семьи (ночные кормления, режим)</li>
+          <li>Подробные инструкции и чек-листы</li>
+        </ul>
+        <a href="#cta" class="btn btn-primary full">Записаться</a>
+      </div>
+
+      <div class="card">
+        <h3>VIP сопровождение</h3>
+        <div class="price">22000 ₽</div>
+        <p>Максимальная поддержка: приоритетное сопровождение, экстренные консультации и гибкая индивидуальная программа.</p>
+        <ul class="card-features">
+          <li>Длительность 60 дней</li>
+          <li>Приоритетные ответы</li>
+          <li>Неограниченное количество звонков</li>
+          <li>Работа с грудным вскармливанием и плавным завершением</li>
+          <li>Поддержка всей семьи</li>
+        </ul>
+        <a href="#cta" class="btn btn-primary full">Записаться</a>
+      </div>
+    </div>
+
+    <p class="small muted" style="margin-top:12px;">Если не уверены, какой тариф выбрать — напишите мне в WhatsApp, помогу подобрать.</p>
+  </div>
 </section>
 
 <section id="channels" class="section">
-    <div class="container center">
-        <h2>Каналы</h2>
-        <p class="section-sub">Где можно со мной связаться и посмотреть материалы</p>
-        <div class="channels" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
-            <a class="btn btn-accent" href="https://wa.me/79649477511" target="_blank">💬 WhatsApp</a>
-            <a class="btn btn-primary" href="https://t.me/79649477511" target="_blank">✈️ Telegram</a>
-            <a class="btn btn-primary" href="https://www.youtube.com/" target="_blank">▶️ YouTube</a>
-            <a class="btn btn-primary" href="https://instagram.com/" target="_blank">📸 Instagram</a>
-        </div>
-        <p style="margin-top:12px;">Ссылки ведут на внешние ресурсы. Контент публикую в Telegram и Instagram — там короткие советы и кейсы.</p>
+  <div class="container center">
+    <h2>Каналы</h2>
+    <p class="section-sub">Где можно со мной связаться и посмотреть материалы</p>
+    <div class="channels" role="list">
+      <a class="channel-card btn btn-accent" href="https://wa.me/79649477511" target="_blank">💬 WhatsApp</a>
+      <a class="channel-card btn btn-primary" href="https://t.me/79649477511" target="_blank">✈️ Telegram</a>
+      <a class="channel-card btn btn-primary" href="https://www.youtube.com/" target="_blank">▶️ YouTube</a>
+      <a class="channel-card btn btn-primary" href="https://instagram.com/" target="_blank">📸 Instagram</a>
     </div>
+  </div>
 </section>
 
 <section id="reviews" class="section">
-    <div class="container">
-        <div class="section-head center">
-            <h2>Отзывы</h2>
-            <p class="section-sub">Что пишут родители</p>
+  <div class="container">
+    <div class="section-head center"><h2>Отзывы</h2><p class="section-sub">Что пишут родители</p></div>
+
+    <div class="reviews-grid">
+      <!-- reviews: use webp + fallback -->
+      <div class="review-item">
+        <div class="review-meta">
+          <picture><source srcset="assets/img/review_gayana.webp" type="image/webp"><img src="assets/img/review_gayana.jpg" alt="Гаяна" loading="lazy" width="56" height="56"></picture>
+          <div><strong>Гаяна</strong><div class="stars">★★★★★</div></div>
         </div>
+        <p>Оксана, спасибо Вам большое! Помогла мне наладить режим и подготовиться к садику! Очень вежливо и доходчиво все объяснила и рассказала! Побольше бы таких специалистов!</p>
+      </div>
 
-        <div class="reviews-grid" style="margin-top:16px;">
-            <!-- Отзыв: Гаяна -->
-            <div class="review-item">
-                <div class="review-meta">
-                    <picture>
-                        <source srcset="assets/img/review_gayana.webp" type="image/webp">
-                        <img src="assets/img/review_gayana.jpg" alt="Отзыв Гаяна" loading="lazy" width="56" height="56">
-                    </picture>
-                    <div>
-                        <strong>Гаяна</strong>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                </div>
-                <p>Оксана, спасибо Вам большое! Помогла мне наладить режим и подготовиться к садику! Очень вежливо и доходчиво все объяснила и рассказала! Побольше бы таких специалистов!</p>
-            </div>
-
-            <!-- Отзыв: Наталья (длинный) -->
-            <div class="review-item">
-                <div class="review-meta">
-                    <picture>
-                        <source srcset="assets/img/review_natalya.webp" type="image/webp">
-                        <img src="assets/img/review_natalya.jpg" alt="Отзыв Наталья" loading="lazy" width="56" height="56">
-                    </picture>
-                    <div>
-                        <strong>Наталья</strong>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                </div>
-                <p>Оксана, спасибо вам большое за проделанную работу! В самом начале у нас было 11 просыпаний за ночь, укладывания по 30 и более минут. На дневном сне просыпался через 20 минут и приходилось докачивать по 15–25 минут. Честно, я не верила, что нам может что‑то помочь — я сама много изучала, но результата не было. Решила обратиться к консультанту, чтобы перепробовать всё и получить помощь.</p>
-                <p>Но каково было моё удивление, когда спустя несколько дней работы с вами ребёнок уснул за 2 минуты! Позже и ночь наладилась: Рома стал просыпаться всего 5 раз вместо 11. Дневные сны стали по 36 минут, и когда просыпается — больше не нужно качать на руках: достаточно дать соску и похлопать. Иногда, если плачет, приходится брать на руки, и он снова засыпает за минуту, но я больше не качаю.</p>
-                <p>Отдельная благодарность, что всегда были на связи и поддерживали, когда я была готова сдаться. Да, случались ЧП, но вы оперативно подсказывали, что делать. Мы восстановили режим — и вы не бросили нас, когда всё сбивалось. Сейчас ещё не идеально, но я понимаю, как действовать дальше и на что обращать внимание. Я была безумно рада работать именно с вами! Спасибо вам большое!</p>
-            </div>
-
-            <!-- Отзыв: Элька Гим -->
-            <div class="review-item">
-                <div class="review-meta">
-                    <picture>
-                        <source srcset="assets/img/review_elka.webp" type="image/webp">
-                        <img src="assets/img/review_elka.jpg" alt="Отзыв Элька" loading="lazy" width="56" height="56">
-                    </picture>
-                    <div>
-                        <strong>Элька Гим</strong>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                </div>
-                <p>Спасибо большое за проделанную работу! Брали ведение по сну. Многие моменты разъяснила, прояснила, всегда была на связи! Работа со стороны родителя требует усилий — это обоюдный процесс, но Оксана мотивировала не сдаваться, даже когда не получалось или я что‑то не понимала. Рекомендую данного специалиста — нам она помогла!</p>
-            </div>
-
-            <!-- Отзыв: Вера -->
-            <div class="review-item">
-                <div class="review-meta">
-                    <picture>
-                        <source srcset="assets/img/review_vera.webp" type="image/webp">
-                        <img src="assets/img/review_vera.jpg" alt="Отзыв Вера" loading="lazy" width="56" height="56">
-                    </picture>
-                    <div>
-                        <strong>Вера</strong>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                </div>
-                <p>Приобрела гайд и получила консультацию по детскому сну своему сыну. Разобрались с режимом и частыми ночными просыпаниями, и уже через несколько дней ночной сон стал улучшаться. В консультации подсказали такие моменты, которые я считала неважными, а оказалось — они очень важны.</p>
-            </div>
-
-            <!-- Новый отзыв: Nat -->
-            <div class="review-item">
-                <div class="review-meta">
-                    <picture>
-                        <source srcset="assets/img/review_nat.webp" type="image/webp">
-                        <img src="assets/img/review_nat.jpg" alt="Отзыв Nat" loading="lazy" width="56" height="56">
-                    </picture>
-                    <div>
-                        <strong>Nat</strong>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                </div>
-                <p>Купила полезный гайд, не получалось сократить ночные кормления на ИВ. Но после консультации некоторые ночные кормления ушли сами благодаря рекомендациям.</p>
-            </div>
-
-            <!-- Новый отзыв: Лейсан Мухутдинова -->
-            <div class="review-item">
-                <div class="review-meta">
-                    <picture>
-                        <source srcset="assets/img/review_leysan.webp" type="image/webp">
-                        <img src="assets/img/review_leysan.jpg" alt="Отзыв Лейсан Мухутдинова" loading="lazy" width="56" height="56">
-                    </picture>
-                    <div>
-                        <strong>Лейсан Мухутдинова</strong>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                </div>
-                <p>Спасибо большое Оксане за помощь. Благодаря рекомендациям наладился режим у ребёнка, укладывания стали спокойными и быстрыми. Все объяснения были понятными, с учётом индивидуальных норм ребёнка. Получила чёткий план действий для дальнейшей работы со сном и режимом. Очень рада, что обратилась именно к Вам.</p>
-            </div>
+      <div class="review-item">
+        <div class="review-meta">
+          <picture><source srcset="assets/img/review_natalya.webp" type="image/webp"><img src="assets/img/review_natalya.jpg" alt="Наталья" loading="lazy" width="56" height="56"></picture>
+          <div><strong>Наталья</strong><div class="stars">★★★★★</div></div>
         </div>
+        <p>Оксана, спасибо вам большое за проделанную работу! В самом начале у нас было 11 просыпаний за ночь... (сокращённый текст на главной, полный в карточке при развёртывании)</p>
+      </div>
 
-        <p class="center" style="margin-top:14px;">Если есть ещё отзывы или фото, пришлите — я добавлю их и оптимизирую изображения для быстрой загрузки.</p>
+      <div class="review-item">
+        <div class="review-meta">
+          <picture><source srcset="assets/img/review_elka.webp" type="image/webp"><img src="assets/img/review_elka.jpg" alt="Элька" loading="lazy" width="56" height="56"></picture>
+          <div><strong>Элька Гим</strong><div class="stars">★★★★★</div></div>
+        </div>
+        <p>Спасибо большое за проделанную работу! Брали ведение по сну. Многие моменты разъяснила, прояснила, всегда была на связи! Рекомендую.</p>
+      </div>
+
+      <div class="review-item">
+        <div class="review-meta">
+          <picture><source srcset="assets/img/review_vera.webp" type="image/webp"><img src="assets/img/review_vera.jpg" alt="Вера" loading="lazy" width="56" height="56"></picture>
+          <div><strong>Вера</strong><div class="stars">★★★★★</div></div>
+        </div>
+        <p>Приобрела гайд и получила консультацию по детскому сну своему сыну. Ночной сон стал улучшаться уже через несколько дней.</p>
+      </div>
+
+      <div class="review-item">
+        <div class="review-meta">
+          <picture><source srcset="assets/img/review_nat.webp" type="image/webp"><img src="assets/img/review_nat.jpg" alt="Nat" loading="lazy" width="56" height="56"></picture>
+          <div><strong>Nat</strong><div class="stars">★★★★★</div></div>
+        </div>
+        <p>Купила полезный гайд, не получалось сократить ночные кормления на ИВ. Но после консультации некоторые ночные кормления ушли сами благодаря рекомендациям.</p>
+      </div>
+
+      <div class="review-item">
+        <div class="review-meta">
+          <picture><source srcset="assets/img/review_leysan.webp" type="image/webp"><img src="assets/img/review_leysan.jpg" alt="Лейсан Мухутдинова" loading="lazy" width="56" height="56"></picture>
+          <div><strong>Лейсан Мухутдинова</strong><div class="stars">★★★★★</div></div>
+        </div>
+        <p>Спасибо большое Оксане за помощь. Благодаря рекомендациям наладился режим у ребёнка, укладывания стали спокойными и быстрыми.</p>
+      </div>
     </div>
+  </div>
 </section>
 
 <section id="faq" class="section">
-    <div class="container center">
-        <h2>FAQ — Частые вопросы</h2>
-        <div class="faq-list" style="max-width:900px;margin:16px auto;text-align:left;">
-            <h4>Как быстро появятся результаты?</h4>
-            <p>Зависит от ситуации: у некоторых семей виден эффект уже через 3–7 дней, у других процесс идет медленнее — нужно учитывать возраст, темперамент и текущую ситуацию.</p>
-
-            <h4>Вы используете «плачём до сна»?</h4>
-            <p>Я не применяю жёсткие методы. Работаю мягко, с поддержкой родителей и учитывая психологию ребёнка.</p>
-
-            <h4>Подходит ли это для детей на грудном вскармливании?</h4>
-            <p>Да. Программы корректируются с учётом грудного кормления, мы подбираем комфортные решения для мамы и ребёнка.</p>
-
-            <h4>Как проходит сопровождение?</h4>
-            <p>В мессенджере — текст/голос, при необходимости видеозвонки. Я даю план, проверяю дневник сна и корректирую рекомендации.</p>
-        </div>
+  <div class="container center">
+    <h2>FAQ — Частые вопросы</h2>
+    <div class="faq-list">
+      <h4>Как быстро появятся результаты?</h4>
+      <p>Зависит от ситуации: у некоторых семей виден эффект уже через 3–7 дней...</p>
+      <h4>Вы используете «плачём до сна»?</h4>
+      <p>Я не применяю жёсткие методы. Работаю мягко, с поддержкой родителей.</p>
+      <h4>Подходит ли это для детей на грудном вскармливании?</h4>
+      <p>Да. Программы корректируются с учётом грудного кормления.</p>
     </div>
+  </div>
 </section>
 
 <section id="cta" class="section">
-    <div class="container center">
-        <h2>Записаться и получить гайд</h2>
-        <p class="section-sub">Оставьте заявку — я свяжусь и помогу подобрать тариф</p>
+  <div class="container center">
+    <h2>Записаться и получить гайд</h2>
+    <p class="section-sub">Оставьте заявку — я свяжусь и помогу подобрать тариф</p>
 
-        <form id="contactForm" class="contact-form" novalidate>
-            <div class="contact-row">
-                <input type="text" id="formName" name="name" placeholder="Ваше имя" required>
-                <input type="tel" id="formPhone" name="phone" placeholder="+7 (999) 999-99-99" required>
-            </div>
-            <div>
-                <textarea id="formMessage" name="message" rows="4" placeholder="Кратко опишите ситуацию (необязательно)"></textarea>
-            </div>
-            <div>
-                <button type="submit" class="btn btn-green">Отправить заявку в WhatsApp</button>
-            </div>
-            <p class="muted small" style="margin-top:8px;">Нажимая кнопку, вы даёте согласие на обработку данных.</p>
-        </form>
-    </div>
+    <form id="contactForm" class="contact-form" novalidate>
+      <div class="contact-row">
+        <input type="text" id="formName" name="name" placeholder="Ваше имя" required>
+        <input type="tel" id="formPhone" name="phone" placeholder="+7 (999) 999-99-99" required>
+      </div>
+      <div>
+        <textarea id="formMessage" name="message" rows="4" placeholder="Кратко опишите ситуацию (необязательно)"></textarea>
+      </div>
+      <div class="consent-row">
+        <label><input type="checkbox" id="pdConsent" required> Я даю согласие на обработку персональных данных и ознакомлен(а) с <a href="#privacy">Политикой конфиденциальности</a>.</label>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-green">Отправить заявку в WhatsApp</button>
+      </div>
+      <p class="muted small" style="margin-top:8px;">Нажимая кнопку, вы даёте согласие на обработку данных.</p>
+    </form>
+  </div>
+</section>
+
+<section id="privacy" class="section">
+  <div class="container">
+    <h2>Политика конфиденциальности</h2>
+    <p>Настоящая Политика описывает порядок и цели обработки персональных данных пользователей сайта «Сон детей» (далее — Сайт).</p>
+
+    <h3>1. Оператор и контакт</h3>
+    <p>Оператор сайта: Оксана Логинова. Контакты: Ok5usha9@yandex.ru, телефон +7 964 947-75-11.</p>
+
+    <h3>2. Какие данные мы собираем</h3>
+    <ul>
+      <li>Имя, телефон, сообщение — когда вы оставляете заявку;</li>
+      <li>Технические данные (IP, тип браузера, время доступа) — автоматически для аналитики и безопасности;</li>
+      <li>Cookies и данные сессии для работы сервисов и улучшения работы сайта.</li>
+    </ul>
+
+    <h3>3. Цели обработки</h3>
+    <p>Обработка осуществляется для связи с вами, предоставления услуг, отправки материалов (гайдов), обеспечения работы сайта, аналитики и соблюдения безопасности.</p>
+
+    <h3>4. Правовые основания</h3>
+    <p>Обработка персональных данных производится на основе добровольного согласия пользователя (ст. 24–25 Федерального закона о персональных данных / актуальные нормы), а также на основании законных интересов оператора в части обеспечения безопасности и качества услуг.</p>
+
+    <h3>5. Сроки хранения</h3>
+    <p>Персональные данные сохраняются на срок, необходимый для достижения целей обработки, но не дольше 3 лет, если иное не требуется законом.</p>
+
+    <h3>6. Передача третьим лицам</h3>
+    <p>Для предоставления услуг мы можем передавать данные поставщикам сервисов (WhatsApp, Telegram, хостинг, почтовые сервисы, аналитика). Передача осуществляется с соблюдением требований безопасности.</p>
+
+    <h3>7. Cookies и трекеры</h3>
+    <p>Сайт использует cookies для корректной работы и аналитики. Вы можете отказаться от cookies в настройках браузера; некоторые функции сайта при этом могут стать недоступны.</p>
+
+    <h3>8. Права субъекта данных</h3>
+    <p>Вы имеете право на доступ, исправление, удаление персональных данных, ограничение обработки и отзыв согласия. Для реализации прав свяжитесь по Ok5usha9@yandex.ru.</p>
+
+    <h3>9. Безопасность</h3>
+    <p>Мы используем технические и организационные меры для защиты данных (шифрование при передаче, ограничение доступа, резервное копирование).</p>
+
+    <h3>10. Изменения</h3>
+    <p>Политика может быть обновлена. Новая версия вступает в силу после публикации на сайте. Дата вступления в силу: 2026-08-14.</p>
+  </div>
 </section>
 
 <footer class="section">
-    <div class="container center" style="padding:24px 0;">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
-            <div>© <strong>Оксана Логинова</strong> — Консультант по детскому сну</div>
-            <div style="display:flex;gap:12px;align-items:center;">
-                <a href="tel:+79649477511" class="btn btn-primary">📞 +7 964 947-75-11</a>
-                <a href="mailto:Ok5usha9@yandex.ru" class="muted" id="footerEmail">Ok5usha9@yandex.ru</a>
-            </div>
-        </div>
-        <p class="small muted" style="margin-top:8px;">Все материалы носят информационный характер. Индивидуальная программа подбирается после консультации.</p>
+  <div class="container center footer-inner">
+    <div>© <strong>Оксана Логинова</strong> — Консультант по детскому сну</div>
+    <div class="footer-contacts">
+      <a href="tel:+79649477511" class="btn btn-primary">📞 +7 964 947-75-11</a>
+      <a href="mailto:Ok5usha9@yandex.ru" class="muted">Ok5usha9@yandex.ru</a>
     </div>
+    <p class="small muted">Все материалы носят информационный характер. Индивидуальная программа подбирается после консультации.</p>
+  </div>
 </footer>
 
 <div class="floating-contact">
-    <a href="https://wa.me/79649477511" target="_blank">💬</a>
+  <a href="https://wa.me/79649477511" target="_blank">💬</a>
+</div>
+
+<!-- Cookie consent banner -->
+<div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" hidden>
+  <p>Мы используем cookies и похожие технологии для работы сайта и улучшения сервиса. Продолжая использование, вы соглашаетесь с нашей <a href="#privacy">Политикой конфиденциальности</a>.</p>
+  <div>
+    <button id="acceptCookies" class="btn btn-primary">Принять</button>
+    <button id="rejectCookies" class="btn btn-accent">Отклонить</button>
+  </div>
 </div>
 
 <script>
-// Форма: открывает WhatsApp с данными
-document.getElementById('contactForm')?.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('formName').value || 'Без имени';
-    const phone = document.getElementById('formPhone').value || '';
-    const message = document.getElementById('formMessage')?.value || '';
-    const text = `Новая заявка!%0AИмя: ${encodeURIComponent(name)}%0AТелефон: ${encodeURIComponent(phone)}%0AСообщение: ${encodeURIComponent(message)}`;
-    window.open(`https://wa.me/79649477511?text=${text}`, '_blank');
-    this.reset();
-    alert('Спасибо! Открывается WhatsApp.');
+/* Cookie banner logic */
+(function(){
+  const banner = document.getElementById('cookieBanner');
+  const accepted = localStorage.getItem('cookies_accepted');
+  if(!accepted) banner.hidden = false;
+  document.getElementById('acceptCookies')?.addEventListener('click', function(){
+    localStorage.setItem('cookies_accepted','yes');
+    banner.hidden = true;
+  });
+  document.getElementById('rejectCookies')?.addEventListener('click', function(){
+    localStorage.setItem('cookies_accepted','no');
+    banner.hidden = true;
+  });
+})();
+
+/* Form submission: require consent checkbox, open WhatsApp */
+document.getElementById('contactForm')?.addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('formName').value.trim() || 'Без имени';
+  const phone = document.getElementById('formPhone').value.trim();
+  const message = document.getElementById('formMessage').value.trim();
+  const consent = document.getElementById('pdConsent').checked;
+  if(!consent){ alert('Пожалуйста, подтвердите согласие на обработку персональных данных.'); return; }
+  const text = `Новая заявка!%0AИмя: ${encodeURIComponent(name)}%0AТелефон: ${encodeURIComponent(phone)}%0AСообщение: ${encodeURIComponent(message)}`;
+  window.open(`https://wa.me/79649477511?text=${text}`, '_blank');
+  this.reset();
+  alert('Спасибо! Открывается WhatsApp.');
+});
+
+/* Guide button: same behavior as form but opens guide contact (keeps consistent) */
+document.getElementById('guideBtn')?.addEventListener('click', function(e){
+  // Scroll to form to let user leave consent and details; if you prefer immediate WA, uncomment:
+  // window.open('https://wa.me/79649477511?text=Хочу+гайд', '_blank');
 });
 </script>
 
