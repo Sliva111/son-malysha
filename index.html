@@ -13,17 +13,59 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
-            align-items: stretch;
+            align-items: start; /* карточки растут по контенту */
         }
         .card {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
+            background: linear-gradient(180deg, #fff, #fbf7ff); /* мягкий фон */
+            border: 1px solid rgba(115,41,178,0.06);
+            box-shadow: 0 10px 30px rgba(115,41,178,0.06);
+            border-radius: 14px;
+            padding: 20px;
+            color: #2b1b3a;
+        }
+        .card h3 {
+            color: #5b2b9a;
+            margin: 0 0 8px;
+            font-size: 1.05rem;
         }
         .card .price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 8px 0 12px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #3b0b66;
+            margin-bottom: 8px;
+        }
+        .card p {
+            margin: 6px 0 12px;
+            line-height: 1.45;
+            color: #3b2b4a;
+        }
+        .card ul {
+            margin: 0 0 14px 18px;
+            padding: 0;
+            color: #3b2b4a;
+        }
+        .card ul li {
+            margin: 6px 0;
+        }
+        /* Кнопка занимает всю ширину карточки и фиксирована снизу (если контент короче) */
+        .btn.full { 
+            width: 100%; 
+            display: inline-block; 
+            text-align: center; 
+            margin-top: auto; 
+            border-radius: 28px;
+            padding: 12px 14px;
+        }
+        /* Переопределение цвета для кнопок записи (яркий градиент) */
+        .btn.btn-primary, .btn.btn-accent, .btn.btn-green {
+            background: linear-gradient(90deg, #9b39e6, #ff5ec7);
+            color: #fff;
+            border: none;
+            box-shadow: 0 6px 18px rgba(153,57,214,0.18);
+            text-decoration: none;
         }
         /* Отзывы */
         .reviews-grid {
@@ -34,9 +76,10 @@
         }
         .review-item {
             background: #fff;
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 16px;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            box-shadow: 0 6px 18px rgba(40,10,80,0.06);
+            border: 1px solid rgba(115,41,178,0.04);
         }
         .review-item .review-meta {
             display:flex;
@@ -74,7 +117,6 @@
             border:1px solid #e0e0e0;
             font-size: 1rem;
         }
-        .btn.full { width:100%; display:inline-block; text-align:center; }
         @media (max-width:520px) {
             .hero-content { gap:20px; }
         }
@@ -286,41 +328,100 @@
         </div>
 
         <div class="reviews-grid" style="margin-top:16px;">
+            <!-- Отзыв: Гаяна -->
             <div class="review-item">
                 <div class="review-meta">
-                    <img src="assets/img/review1.jpg" alt="Отзыв 1" loading="lazy">
+                    <picture>
+                        <source srcset="assets/img/review_gayana.webp" type="image/webp">
+                        <img src="assets/img/review_gayana.jpg" alt="Отзыв Гаяна" loading="lazy" width="56" height="56">
+                    </picture>
                     <div>
-                        <strong>Анна, мама 8-месячного</strong>
+                        <strong>Гаяна</strong>
                         <div class="stars">★★★★★</div>
                     </div>
                 </div>
-                <p>Очень довольна! Благодаря инструкциям Оксаны мы сократили укладывание с 1,5 часа до 20 минут. Поддержка и мягкие советы — именно то, что нам было нужно.</p>
+                <p>Оксана, спасибо Вам большое! Помогла мне наладить режим и подготовиться к садику! Очень вежливо и доходчиво все объяснила и рассказала! Побольше бы таких специалистов!</p>
             </div>
 
+            <!-- Отзыв: Наталья (длинный) -->
             <div class="review-item">
                 <div class="review-meta">
-                    <img src="assets/img/review2.jpg" alt="Отзыв 2" loading="lazy">
+                    <picture>
+                        <source srcset="assets/img/review_natalya.webp" type="image/webp">
+                        <img src="assets/img/review_natalya.jpg" alt="Отзыв Наталья" loading="lazy" width="56" height="56">
+                    </picture>
                     <div>
-                        <strong>Мария, мама 2 лет</strong>
+                        <strong>Наталья</strong>
                         <div class="stars">★★★★★</div>
                     </div>
                 </div>
-                <p>После двух недель курса ребёнок стал спать крепче ночью, прошло много пробуждений. Оксана объясняет просто, даёт реалистичные шаги, поддерживает морально.</p>
+                <p>Оксана, спасибо вам большое за проделанную работу! В самом начале у нас было 11 просыпаний за ночь, укладывания по 30 и более минут. На дневном сне просыпался через 20 минут и приходилось докачивать по 15–25 минут. Честно, я не верила, что нам может что‑то помочь — я сама много изучала, но результата не было. Решила обратиться к консультанту, чтобы перепробовать всё и получить помощь.</p>
+                <p>Но каково было моё удивление, когда спустя несколько дней работы с вами ребёнок уснул за 2 минуты! Позже и ночь наладилась: Рома стал просыпаться всего 5 раз вместо 11. Дневные сны стали по 36 минут, и когда просыпается — больше не нужно качать на руках: достаточно дать соску и похлопать. Иногда, если плачет, приходится брать на руки, и он снова засыпает за минуту, но я больше не качаю.</p>
+                <p>Отдельная благодарность, что всегда были на связи и поддерживали, когда я была готова сдаться. Да, случались ЧП, но вы оперативно подсказывали, что делать. Мы восстановили режим — и вы не бросили нас, когда всё сбивалось. Сейчас ещё не идеально, но я понимаю, как действовать дальше и на что обращать внимание. Я была безумно рада работать именно с вами! Спасибо вам большое!</p>
             </div>
 
+            <!-- Отзыв: Элька Гим -->
             <div class="review-item">
                 <div class="review-meta">
-                    <img src="assets/img/review3.jpg" alt="Отзыв 3" loading="lazy">
+                    <picture>
+                        <source srcset="assets/img/review_elka.webp" type="image/webp">
+                        <img src="assets/img/review_elka.jpg" alt="Отзыв Элька" loading="lazy" width="56" height="56">
+                    </picture>
                     <div>
-                        <strong>Екатерина, мама 4-х мес.</strong>
+                        <strong>Элька Гим</strong>
                         <div class="stars">★★★★★</div>
                     </div>
                 </div>
-                <p>Очень благодарна за индивидуальный подход: учли темперамент ребёнка и особенности кормления. Всё очень деликатно и эффективно.</p>
+                <p>Спасибо большое за проделанную работу! Брали ведение по сну. Многие моменты разъяснила, прояснила, всегда была на связи! Работа со стороны родителя требует усилий — это обоюдный процесс, но Оксана мотивировала не сдаваться, даже когда не получалось или я что‑то не понимала. Рекомендую данного специалиста — нам она помогла!</p>
+            </div>
+
+            <!-- Отзыв: Вера -->
+            <div class="review-item">
+                <div class="review-meta">
+                    <picture>
+                        <source srcset="assets/img/review_vera.webp" type="image/webp">
+                        <img src="assets/img/review_vera.jpg" alt="Отзыв Вера" loading="lazy" width="56" height="56">
+                    </picture>
+                    <div>
+                        <strong>Вера</strong>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>Приобрела гайд и получила консультацию по детскому сну своему сыну. Разобрались с режимом и частыми ночными просыпаниями, и уже через несколько дней ночной сон стал улучшаться. В консультации подсказали такие моменты, которые я считала неважными, а оказалось — они очень важны.</p>
+            </div>
+
+            <!-- Новый отзыв: Nat -->
+            <div class="review-item">
+                <div class="review-meta">
+                    <picture>
+                        <source srcset="assets/img/review_nat.webp" type="image/webp">
+                        <img src="assets/img/review_nat.jpg" alt="Отзыв Nat" loading="lazy" width="56" height="56">
+                    </picture>
+                    <div>
+                        <strong>Nat</strong>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>Купила полезный гайд, не получалось сократить ночные кормления на ИВ. Но после консультации некоторые ночные кормления ушли сами благодаря рекомендациям.</p>
+            </div>
+
+            <!-- Новый отзыв: Лейсан Мухутдинова -->
+            <div class="review-item">
+                <div class="review-meta">
+                    <picture>
+                        <source srcset="assets/img/review_leysan.webp" type="image/webp">
+                        <img src="assets/img/review_leysan.jpg" alt="Отзыв Лейсан Мухутдинова" loading="lazy" width="56" height="56">
+                    </picture>
+                    <div>
+                        <strong>Лейсан Мухутдинова</strong>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>Спасибо большое Оксане за помощь. Благодаря рекомендациям наладился режим у ребёнка, укладывания стали спокойными и быстрыми. Все объяснения были понятными, с учётом индивидуальных норм ребёнка. Получила чёткий план действий для дальнейшей работы со сном и режимом. Очень рада, что обратилась именно к Вам.</p>
             </div>
         </div>
 
-        <p class="center" style="margin-top:14px;">Есть ещё отзывы — пришлите фото/файлы, я добавлю их на страницу.</p>
+        <p class="center" style="margin-top:14px;">Если есть ещё отзывы или фото, пришлите — я добавлю их и оптимизирую изображения для быстрой загрузки.</p>
     </div>
 </section>
 
@@ -370,7 +471,7 @@
             <div>© <strong>Оксана Логинова</strong> — Консультант по детскому сну</div>
             <div style="display:flex;gap:12px;align-items:center;">
                 <a href="tel:+79649477511" class="btn btn-primary">📞 +7 964 947-75-11</a>
-                <a href="mailto:info@example.com" class="muted">info@example.com</a>
+                <a href="mailto:Ok5usha9@yandex.ru" class="muted" id="footerEmail">Ok5usha9@yandex.ru</a>
             </div>
         </div>
         <p class="small muted" style="margin-top:8px;">Все материалы носят информационный характер. Индивидуальная программа подбирается после консультации.</p>
