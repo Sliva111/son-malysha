@@ -408,5 +408,75 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+<script>
+/* Lightbox для сертификатов — вставьте перед </body> */
+(function(){
+  // Создаём элементы overlay один раз
+  const overlay = document.createElement('div');
+  overlay.className = 'certificate-lightbox-overlay';
+  overlay.style.display = 'none';
+  overlay.setAttribute('aria-hidden', 'true');
+
+  const img = document.createElement('img');
+  img.alt = 'Документ — увеличенное изображение';
+  overlay.appendChild(img);
+
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'certificate-lightbox-close';
+  closeBtn.type = 'button';
+  closeBtn.innerHTML = '✕';
+  closeBtn.title = 'Закрыть';
+  closeBtn.style.display = 'none'; // опционально: можете показать или скрыть
+  document.body.appendChild(closeBtn);
+  document.body.appendChild(overlay);
+
+  function openLightbox(src, alt) {
+    img.src = src;
+    if (alt) img.alt = alt;
+    overlay.style.display = 'flex';
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lb-open');
+    closeBtn.style.display = 'block';
+    // фокус для клавиши ESC
+    closeBtn.focus();
+  }
+
+  function closeLightbox() {
+    overlay.style.display = 'none';
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lb-open');
+    closeBtn.style.display = 'none';
+    img.src = '';
+  }
+
+  // Закрыть по клику на overlay или на крестик
+  overlay.addEventListener('click', function(e){
+    // если клик по самому изображению — не закрываем
+    if (e.target === img) return;
+    closeLightbox();
+  });
+  closeBtn.addEventListener('click', closeLightbox);
+
+  // Закрыть по ESC
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Делегируем клики на все картинки .certificate-img
+  document.addEventListener('click', function(e){
+    const el = e.target;
+    if (!el.classList) return;
+    if (el.classList.contains('certificate-img')) {
+      // Если у картинки задан data-large — используем его, иначе используем src
+      const large = el.getAttribute('data-large') || el.src || el.getAttribute('src');
+      openLightbox(large, el.alt || 'Документ');
+      e.preventDefault();
+    }
+  });
+
+  // Для доступности: предотвращаем tab внутри документа на фоне — опционально можно доработать
+})();
+</script>
+
 </body>
 </html>
