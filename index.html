@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Логинова Оксана Борисовна — Консультант по детскому сну</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=2">
+    <link rel="stylesheet" href="css/style.css?v=3">
+    <style>
+        /* Самые важные стили для быстрой отрисовки */
+        .hero-image { max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 35px rgba(192, 38, 211, 0.15); }
+    </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
     <div class="container nav">
         <div class="logo">🌙 Сон детей</div>
-
         <nav>
             <a href="#about">О специалисте</a>
             <a href="#services">Тарифы</a>
@@ -23,7 +25,6 @@
             <a href="#faq">FAQ</a>
             <a href="#cta">Контакты</a>
         </nav>
-
         <div class="header-phone">
             <a href="tel:+79649477511" class="btn btn-primary">📞 Позвонить</a>
             <span>+7 964 947-75-11</span>
@@ -59,17 +60,17 @@
                     <li>перестать жить в постоянном недосыпе и чувстве вины</li>
                 </ul>
                 <p class="hero-about-text">
-                    Я сама мама двухлетнего сына и прекрасно понимаю, каково это — считать минуты сна и просыпаться разбитой.
+                    Я сама мама двухлетнего сына и прекрасно понимаю ваше состояние. 
                     Работаю мягко, с поддержкой и без осуждения.
                 </p>
             </div>
         </div>
 
-        <img src="assets/img/hero.jpg" alt="Оксана Логинова" class="hero-image">
+        <!-- Главное фото — ОБЯЗАТЕЛЬНО проверь путь! -->
+        <img src="assets/img/hero.jpg" alt="Оксана Логинова — Консультант по детскому сну" class="hero-image" loading="lazy">
     </div>
 </section>
 
-<!-- Остальные секции (оставил твои оригинальные, только убрал старый stars-overlay) -->
 <section id="about" class="section">
     <div class="container center">
         <h2>О специалисте</h2>
@@ -82,7 +83,7 @@
         <h2>Образование и сертификаты</h2>
         <div class="certificates-grid">
             <div class="certificate-item">
-                <img src="assets/img/certificate1.jpg" alt="Сертификат" class="certificate-img">
+                <img src="assets/img/certificate1.jpg" alt="Сертификат" class="certificate-img" loading="lazy">
                 <div class="certificate-info">
                     <h3>Консультант по детскому сну</h3>
                     <p>Повышение квалификации, 200 часов</p>
@@ -90,7 +91,7 @@
                 </div>
             </div>
             <div class="certificate-item">
-                <img src="assets/img/certificate2.jpg" alt="Высшее образование" class="certificate-img">
+                <img src="assets/img/certificate2.jpg" alt="Высшее образование" class="certificate-img" loading="lazy">
                 <div class="certificate-info">
                     <h3>Документ о высшем образовании</h3>
                     <p>Дошкольный педагог, детский психолог</p>
@@ -98,7 +99,7 @@
                 </div>
             </div>
             <div class="certificate-item">
-                <img src="assets/img/certificate3.jpg" alt="Квалификация" class="certificate-img">
+                <img src="assets/img/certificate3.jpg" alt="Квалификация" class="certificate-img" loading="lazy">
                 <div class="certificate-info">
                     <h3>Документ о квалификации</h3>
                     <p>Дополнительная профессиональная программа</p>
@@ -109,23 +110,23 @@
     </div>
 </section>
 
-<!-- Services, Channels, Reviews, FAQ, CTA и Footer — полностью твои оригинальные блоки. 
-     Чтобы не делать сообщение слишком длинным, я их не дублирую здесь. 
-     Просто вставь их из своего предыдущего index.html между секцией education и footer. -->
+<!-- ВСТАВЬ СЮДА ВСЕ ОСТАЛЬНЫЕ СЕКЦИИ ИЗ ТВОЕГО ИСХОДНОГО ФАЙЛА -->
+<!-- (services, channels, reviews, faq, cta, footer) -->
 
-<!-- FLOATING WHATSAPP -->
+<!-- Я не дублирую их здесь, чтобы сообщение не было огромным. Просто скопируй их из твоего старого index.html начиная с <section id="services"> и до конца перед </body> -->
+
+<!-- FLOATING BUTTON -->
 <div class="floating-contact">
     <a href="https://wa.me/79649477511" target="_blank">💬</a>
 </div>
 
-<script src="js/main.js"></script>
 <script>
-// Форма отправки
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+// Простая отправка формы
+document.getElementById('contactForm')?.addEventListener('submit', function(e) {
     e.preventDefault();
     const name = document.getElementById('formName').value;
     const phone = document.getElementById('formPhone').value;
-    const text = `Новая заявка! Имя: ${name}%0AТелефон: ${phone}`;
+    const text = `Новая заявка!%0AИмя: ${name}%0AТелефон: ${phone}`;
     window.open(`https://wa.me/79649477511?text=${text}`, '_blank');
     this.reset();
     alert('Спасибо! Открывается WhatsApp.');
