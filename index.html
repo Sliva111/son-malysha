@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Логинова Оксана Борисовна — Консультант по детскому сну</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=6">
+  <link rel="stylesheet" href="css/style.css?v=1">
 </head>
 <body>
 
@@ -58,11 +58,8 @@
     </div>
 
     <div class="hero-image-wrap" aria-hidden="true">
-      <picture>
-        <source srcset="assets/img/hero-1200.webp" type="image/webp">
-        <source srcset="assets/img/hero-800.jpg" type="image/jpeg">
-        <img class="hero-image" src="assets/img/hero-800.jpg" alt="Оксана Логинова" loading="eager" width="460" height="640">
-      </picture>
+      <!-- Используем существующий файл hero.jpg -->
+      <img class="hero-image" src="assets/img/hero.jpg" alt="Оксана Логинова" loading="eager" width="460" height="640">
     </div>
   </div>
 </section>
@@ -114,7 +111,6 @@
     </div>
 
     <div class="cards">
-      <!-- Карточки тарифов (каждая растёт по содержимому, кнопка фиксируется внизу) -->
       <div class="card">
         <h3>Экспресс консультация (повторное обращение)</h3>
         <div class="price">1500 ₽</div>
@@ -208,10 +204,9 @@
     <div class="section-head center"><h2>Отзывы</h2><p class="section-sub">Что пишут родители</p></div>
 
     <div class="reviews-grid">
-      <!-- reviews: use webp + fallback -->
       <div class="review-item">
         <div class="review-meta">
-          <picture><source srcset="assets/img/review_gayana.webp" type="image/webp"><img src="assets/img/review_gayana.jpg" alt="Гаяна" loading="lazy" width="56" height="56"></picture>
+          <img src="assets/img/review_gayana.jpg" alt="Гаяна" loading="lazy" width="56" height="56">
           <div><strong>Гаяна</strong><div class="stars">★★★★★</div></div>
         </div>
         <p>Оксана, спасибо Вам большое! Помогла мне наладить режим и подготовиться к садику! Очень вежливо и доходчиво все объяснила и рассказала! Побольше бы таких специалистов!</p>
@@ -219,15 +214,15 @@
 
       <div class="review-item">
         <div class="review-meta">
-          <picture><source srcset="assets/img/review_natalya.webp" type="image/webp"><img src="assets/img/review_natalya.jpg" alt="Наталья" loading="lazy" width="56" height="56"></picture>
+          <img src="assets/img/review_natalya.jpg" alt="Наталья" loading="lazy" width="56" height="56">
           <div><strong>Наталья</strong><div class="stars">★★★★★</div></div>
         </div>
-        <p>Оксана, спасибо вам большое за проделанную работу! В самом начале у нас было 11 просыпаний за ночь... (сокращённый текст на главной, полный в карточке при развёртывании)</p>
+        <p>Оксана, спасибо вам большое за проделанную работу! В самом начале у нас было 11 просыпаний за ночь... (полный отзыв в переписке)</p>
       </div>
 
       <div class="review-item">
         <div class="review-meta">
-          <picture><source srcset="assets/img/review_elka.webp" type="image/webp"><img src="assets/img/review_elka.jpg" alt="Элька" loading="lazy" width="56" height="56"></picture>
+          <img src="assets/img/review_elka.jpg" alt="Элька Гим" loading="lazy" width="56" height="56">
           <div><strong>Элька Гим</strong><div class="stars">★★★★★</div></div>
         </div>
         <p>Спасибо большое за проделанную работу! Брали ведение по сну. Многие моменты разъяснила, прояснила, всегда была на связи! Рекомендую.</p>
@@ -235,7 +230,7 @@
 
       <div class="review-item">
         <div class="review-meta">
-          <picture><source srcset="assets/img/review_vera.webp" type="image/webp"><img src="assets/img/review_vera.jpg" alt="Вера" loading="lazy" width="56" height="56"></picture>
+          <img src="assets/img/review_vera.jpg" alt="Вера" loading="lazy" width="56" height="56">
           <div><strong>Вера</strong><div class="stars">★★★★★</div></div>
         </div>
         <p>Приобрела гайд и получила консультацию по детскому сну своему сыну. Ночной сон стал улучшаться уже через несколько дней.</p>
@@ -243,16 +238,16 @@
 
       <div class="review-item">
         <div class="review-meta">
-          <picture><source srcset="assets/img/review_nat.webp" type="image/webp"><img src="assets/img/review_nat.jpg" alt="Nat" loading="lazy" width="56" height="56"></picture>
+          <img src="assets/img/review_nat.jpg" alt="Nat" loading="lazy" width="56" height="56">
           <div><strong>Nat</strong><div class="stars">★★★★★</div></div>
         </div>
-        <p>Купила полезный гайд, не получалось сократить ночные кормления на ИВ. Но после консультации некоторые ночные кормления ушли сами благодаря рекомендациям.</p>
+        <p>Купила полезный гайд — после консультации некоторые ночные кормления ушли сами благодаря рекомендациям.</p>
       </div>
 
       <div class="review-item">
         <div class="review-meta">
-          <picture><source srcset="assets/img/review_leysan.webp" type="image/webp"><img src="assets/img/review_leysan.jpg" alt="Лейсан Мухутдинова" loading="lazy" width="56" height="56"></picture>
-          <div><strong>Лейсан Мухутдинова</strong><div class="stars">★★★★★</div></div>
+          <img src="assets/img/review_leysan.jpg" alt="Лейсан" loading="lazy" width="56" height="56">
+          <div><strong>Лейсан</strong><div class="stars">★★★★★</div></div>
         </div>
         <p>Спасибо большое Оксане за помощь. Благодаря рекомендациям наладился режим у ребёнка, укладывания стали спокойными и быстрыми.</p>
       </div>
@@ -264,12 +259,15 @@
   <div class="container center">
     <h2>FAQ — Частые вопросы</h2>
     <div class="faq-list">
-      <h4>Как быстро появятся результаты?</h4>
-      <p>Зависит от ситуации: у некоторых семей виден эффект уже через 3–7 дней...</p>
-      <h4>Вы используете «плачём до сна»?</h4>
-      <p>Я не применяю жёсткие методы. Работаю мягко, с поддержкой родителей.</p>
-      <h4>Подходит ли это для детей на грудном вскармливании?</h4>
-      <p>Да. Программы корректируются с учётом грудного кормления.</p>
+      <div class="faq-item">
+        <div class="faq-question">Как быстро появятся результаты?</div>
+        <div class="faq-answer">Зависит от ситуации: у некоторых семей эффект виден через 3–7 дней.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Вы используете «плачём до сна»?</div>
+        <div class="faq-answer">Я не применяю жёсткие методы. Работаю мягко, с поддержкой родителей.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -284,15 +282,13 @@
         <input type="text" id="formName" name="name" placeholder="Ваше имя" required>
         <input type="tel" id="formPhone" name="phone" placeholder="+7 (999) 999-99-99" required>
       </div>
-      <div>
-        <textarea id="formMessage" name="message" rows="4" placeholder="Кратко опишите ситуацию (необязательно)"></textarea>
-      </div>
+      <div><textarea id="formMessage" name="message" rows="4" placeholder="Кратко опишите ситуацию (необязательно)"></textarea></div>
+
       <div class="consent-row">
         <label><input type="checkbox" id="pdConsent" required> Я даю согласие на обработку персональных данных и ознакомлен(а) с <a href="#privacy">Политикой конфиденциальности</a>.</label>
       </div>
-      <div>
-        <button type="submit" class="btn btn-green">Отправить заявку в WhatsApp</button>
-      </div>
+
+      <div><button type="submit" class="btn btn-green">Отправить заявку в WhatsApp</button></div>
       <p class="muted small" style="margin-top:8px;">Нажимая кнопку, вы даёте согласие на обработку данных.</p>
     </form>
   </div>
@@ -301,41 +297,20 @@
 <section id="privacy" class="section">
   <div class="container">
     <h2>Политика конфиденциальности</h2>
-    <p>Настоящая Политика описывает порядок и цели обработки персональных данных пользователей сайта «Сон детей» (далее — Сайт).</p>
-
-    <h3>1. Оператор и контакт</h3>
-    <p>Оператор сайта: Оксана Логинова. Контакты: Ok5usha9@yandex.ru, телефон +7 964 947-75-11.</p>
-
+    <p>Настоящая Политика описывает порядок и цели обработки персональных данных пользователей сайта «Сон детей».</p>
+    <h3>1. Оператор и контакты</h3>
+    <p>Оператор: Оксана Логинова. Контакты: Ok5usha9@yandex.ru, +7 964 947-75-11.</p>
     <h3>2. Какие данные мы собираем</h3>
     <ul>
-      <li>Имя, телефон, сообщение — когда вы оставляете заявку;</li>
-      <li>Технические данные (IP, тип браузера, время доступа) — автоматически для аналитики и безопасности;</li>
-      <li>Cookies и данные сессии для работы сервисов и улучшения работы сайта.</li>
+      <li>Имя, телефон, сообщение — при оставлении заявки;</li>
+      <li>Технические данные (IP, браузер, время доступа);</li>
+      <li>Cookies и данные сессии.</li>
     </ul>
-
     <h3>3. Цели обработки</h3>
-    <p>Обработка осуществляется для связи с вами, предоставления услуг, отправки материалов (гайдов), обеспечения работы сайта, аналитики и соблюдения безопасности.</p>
-
-    <h3>4. Правовые основания</h3>
-    <p>Обработка персональных данных производится на основе добровольного согласия пользователя (ст. 24–25 Федерального закона о персональных данных / актуальные нормы), а также на основании законных интересов оператора в части обеспечения безопасности и качества услуг.</p>
-
-    <h3>5. Сроки хранения</h3>
-    <p>Персональные данные сохраняются на срок, необходимый для достижения целей обработки, но не дольше 3 лет, если иное не требуется законом.</p>
-
-    <h3>6. Передача третьим лицам</h3>
-    <p>Для предоставления услуг мы можем передавать данные поставщикам сервисов (WhatsApp, Telegram, хостинг, почтовые сервисы, аналитика). Передача осуществляется с соблюдением требований безопасности.</p>
-
-    <h3>7. Cookies и трекеры</h3>
-    <p>Сайт использует cookies для корректной работы и аналитики. Вы можете отказаться от cookies в настройках браузера; некоторые функции сайта при этом могут стать недоступны.</p>
-
-    <h3>8. Права субъекта данных</h3>
-    <p>Вы имеете право на доступ, исправление, удаление персональных данных, ограничение обработки и отзыв согласия. Для реализации прав свяжитесь по Ok5usha9@yandex.ru.</p>
-
-    <h3>9. Безопасность</h3>
-    <p>Мы используем технические и организационные меры для защиты данных (шифрование при передаче, ограничение доступа, резервное копирование).</p>
-
-    <h3>10. Изменения</h3>
-    <p>Политика может быть обновлена. Новая версия вступает в силу после публикации на сайте. Дата вступления в силу: 2026-08-14.</p>
+    <p>Контакт, предоставление услуг, отправка материалов, аналитика, безопасность.</p>
+    <h3>4. Права субъекта данных</h3>
+    <p>Вы можете запросить доступ, исправление, удаление, ограничение обработки, отзыв согласия — по почте Ok5usha9@yandex.ru.</p>
+    <p>Дата вступления в силу: 2026-08-14.</p>
   </div>
 </section>
 
@@ -354,49 +329,64 @@
   <a href="https://wa.me/79649477511" target="_blank">💬</a>
 </div>
 
-<!-- Cookie consent banner -->
-<div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" hidden>
-  <p>Мы используем cookies и похожие технологии для работы сайта и улучшения сервиса. Продолжая использование, вы соглашаетесь с нашей <a href="#privacy">Политикой конфиденциальности</a>.</p>
-  <div>
-    <button id="acceptCookies" class="btn btn-primary">Принять</button>
-    <button id="rejectCookies" class="btn btn-accent">Отклонить</button>
+<!-- Cookie banner -->
+<div id="cookieBanner" class="cookie-banner" style="display:none;">
+  <div class="cookie-text">
+    Мы используем cookies и похожие технологии для работы сайта и улучшения сервиса. Продолжая использование, вы соглашаетесь с нашей <a href="#privacy">Политикой конфиденциальности</a>.
+  </div>
+  <div class="cookie-actions">
+    <button id="acceptCookies" type="button" class="btn btn-primary">Принять</button>
+    <button id="rejectCookies" type="button" class="btn btn-accent">Отклонить</button>
   </div>
 </div>
 
 <script>
-/* Cookie banner logic */
-(function(){
+document.addEventListener('DOMContentLoaded', function () {
+  // Cookie
   const banner = document.getElementById('cookieBanner');
-  const accepted = localStorage.getItem('cookies_accepted');
-  if(!accepted) banner.hidden = false;
-  document.getElementById('acceptCookies')?.addEventListener('click', function(){
-    localStorage.setItem('cookies_accepted','yes');
-    banner.hidden = true;
+  try {
+    const accepted = localStorage.getItem('cookies_accepted');
+    if (!accepted) banner.style.display = 'flex';
+  } catch (e) {
+    banner.style.display = 'flex';
+  }
+  document.getElementById('acceptCookies')?.addEventListener('click', function() {
+    try { localStorage.setItem('cookies_accepted', 'yes'); } catch(e){}
+    banner.style.display = 'none';
   });
-  document.getElementById('rejectCookies')?.addEventListener('click', function(){
-    localStorage.setItem('cookies_accepted','no');
-    banner.hidden = true;
+  document.getElementById('rejectCookies')?.addEventListener('click', function() {
+    try { localStorage.setItem('cookies_accepted', 'no'); } catch(e){}
+    banner.style.display = 'none';
   });
-})();
 
-/* Form submission: require consent checkbox, open WhatsApp */
-document.getElementById('contactForm')?.addEventListener('submit', function(e){
-  e.preventDefault();
-  const name = document.getElementById('formName').value.trim() || 'Без имени';
-  const phone = document.getElementById('formPhone').value.trim();
-  const message = document.getElementById('formMessage').value.trim();
-  const consent = document.getElementById('pdConsent').checked;
-  if(!consent){ alert('Пожалуйста, подтвердите согласие на обработку персональных данных.'); return; }
-  const text = `Новая заявка!%0AИмя: ${encodeURIComponent(name)}%0AТелефон: ${encodeURIComponent(phone)}%0AСообщение: ${encodeURIComponent(message)}`;
-  window.open(`https://wa.me/79649477511?text=${text}`, '_blank');
-  this.reset();
-  alert('Спасибо! Открывается WhatsApp.');
-});
+  // Form
+  document.getElementById('contactForm')?.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('formName').value.trim() || 'Без имени';
+    const phone = document.getElementById('formPhone').value.trim() || '';
+    const message = document.getElementById('formMessage').value.trim() || '';
+    const consent = document.getElementById('pdConsent')?.checked;
+    if (!consent) { alert('Пожалуйста, подтвердите согласие на обработку персональных данных.'); return; }
+    const text = `Новая заявка!%0AИмя: ${encodeURIComponent(name)}%0AТелефон: ${encodeURIComponent(phone)}%0AСообщение: ${encodeURIComponent(message)}`;
+    window.open(`https://wa.me/79649477511?text=${text}`, '_blank');
+    this.reset();
+    alert('Спасибо! Открывается WhatsApp.');
+  });
 
-/* Guide button: same behavior as form but opens guide contact (keeps consistent) */
-document.getElementById('guideBtn')?.addEventListener('click', function(e){
-  // Scroll to form to let user leave consent and details; if you prefer immediate WA, uncomment:
-  // window.open('https://wa.me/79649477511?text=Хочу+гайд', '_blank');
+  // Reveal (optional)
+  const isMobile = window.innerWidth < 768;
+  if (!isMobile && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('js-reveal-ready');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }
 });
 </script>
 
