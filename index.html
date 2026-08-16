@@ -333,21 +333,21 @@
 <section id="cta" class="section">
   <div class="container center">
     <h2>Записаться и получить гайд</h2>
-    <p class="section-sub">Оставьте заявку — я свяжусь и помогу подобрать тариф</p>
+    <p class="section-sub">Оставьте заявку – я свяжусь и помогу подобрать тариф</p>
 
-    <form id="contactForm" class="contact-form" novalidate>
+    <form class="contact-form" action="https://formsubmit.co/Ok5usha9@yandex.ru" method="POST">
       <div class="contact-row">
-        <input type="text" id="formName" name="name" placeholder="Ваше имя" required>
-        <input type="tel" id="formPhone" name="phone" placeholder="+7 (999) 999-99-99" required>
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="tel" name="phone" placeholder="+7 (999) 999-99-99" required>
       </div>
       <div>
-        <textarea id="formMessage" name="message" rows="4" placeholder="Кратко опишите ситуацию (необязательно)"></textarea>
+        <textarea name="message" rows="4" placeholder="Кратко опишите ситуацию (необязательно)"></textarea>
       </div>
       <div class="consent-row">
-        <label><input type="checkbox" id="pdConsent" required> Я даю согласие на обработку персональных данных и ознакомлен(а) с <a href="/privacy.html#processing" target="_blank">Политикой конфиденциальности</a>.</label>
+        <label><input type="checkbox" required> Я даю согласие на обработку персональных данных и ознакомлен(a) с <a href="/privacy.html#processing" target="_blank">политикой конфиденциальности</a></label>
       </div>
       <div>
-        <button type="submit" class="btn btn-green">Отправить заявку в WhatsApp</button>
+        <button type="submit" class="btn btn-green">🚀 Отправить заявку</button>
       </div>
       <p class="muted small" style="margin-top:8px;">Нажимая кнопку, вы даёте согласие на обработку данных.</p>
     </form>
@@ -391,20 +391,6 @@ document.addEventListener('DOMContentLoaded', function () {
   } catch(e) { banner.style.display = 'flex'; }
   document.getElementById('acceptCookies')?.addEventListener('click', function() { try{localStorage.setItem('cookies_accepted','yes')}catch(e){}; banner.style.display='none'; });
   document.getElementById('rejectCookies')?.addEventListener('click', function() { try{localStorage.setItem('cookies_accepted','no')}catch(e){}; banner.style.display='none'; });
-
-  // Form submission
-  document.getElementById('contactForm')?.addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = document.getElementById('formName').value.trim() || 'Без имени';
-    const phone = document.getElementById('formPhone').value.trim() || '';
-    const message = document.getElementById('formMessage').value.trim() || '';
-    const consent = document.getElementById('pdConsent')?.checked;
-    if (!consent) { alert('Пожалуйста, подтвердите согласие на обработку персональных данных.'); return; }
-    const text = `Новая заявка!%0AИмя: ${encodeURIComponent(name)}%0AТелефон: ${encodeURIComponent(phone)}%0AСообщение: ${encodeURIComponent(message)}`;
-    window.open(`https://wa.me/79649477511?text=${text}`, '_blank');
-    this.reset();
-    alert('Спасибо! Открывается WhatsApp.');
-  });
 });
 </script>
 
