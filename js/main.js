@@ -1,88 +1,153 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', function () {
+  /*
+   * COOKIE BANNER
+   */
 
-    // ── REVEAL ──────────────────────────────────────────────
-    // Добавляем класс на html — CSS включает анимации
-    // Делаем это сразу, до observer, чтобы не было мигания
-    const isMobile = window.innerWidth < 768;
+  const banner = document.getElementById('cookieBanner');
+  const acceptCookies = document.getElementById('acceptCookies');
+  const rejectCookies = document.getElementById('rejectCookies');
 
-    if (!isMobile && 'IntersectionObserver' in window) {
-        // На десктопе — полная анимация
-        document.documentElement.classList.add('js-reveal-ready');
+  if (banner) {
+    try {
+      const cookiesAccepted = localStorage.getItem('cookies_accepted');
 
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.08,
-            rootMargin: '0px 0px -20px 0px'
-        });
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
+      if (!cookiesAccepted) {
+        banner.style.display = 'flex';
+      }
+    } catch (error) {
+      banner.style.display = 'flex';
     }
-    // На мобиле — js-reveal-ready НЕ добавляется
-    // Все .reveal сразу видимы (opacity:1 по умолчанию в CSS)
 
-    // ── FAQ ──────────────────────────────────────────────────
-    document.querySelectorAll('.faq-question').forEach(q => {
-        q.addEventListener('click', () => {
-            q.parentElement.classList.toggle('open');
-        });
+    if (acceptCookies) {
+      acceptCookies.addEventListener('click', function () {
+        try {
+          localStorage.setItem('cookies_accepted', 'yes');
+        } catch (error) {}
+
+        banner.style.display = 'none';
+      });
+    }
+
+    if (rejectCookies) {
+      rejectCookies.addEventListener('click', function () {
+        try {
+          localStorage.setItem('cookies_accepted', 'no');
+        } catch (error) {}
+
+        banner.style.display = 'none';
+      });
+    }
+  }
+
+
+  /*
+   * FAQ — раскрывающиеся вопросы
+   */
+
+  const faqQuestions = document.querySelectorAll('.faq-question');
+
+  faqQuestions.forEach(function (question) {
+    question.addEventListener('click', function () {
+      const faqItem = question.closest('.faq-item');
+
+      if (!faqItem) {
+        return;
+      }
+
+      const answer = faqItem.querySelector('.faq-answer');
+
+      if (!answer) {
+        return;
+      }
+
+      const isOpen = answer.classList.toggle('open');
+
+      question.classList.toggle('active', isOpen);
+      question.setAttribute('aria-expanded', String(isOpen));
     });
+  });
 
-    // ── ЗВЁЗДЫ ───────────────────────────────────────────────
-    // Только на десктопе, только в свободное время браузера
-    if (!isMobile) {
-        const createStars = () => {
-            const overlay = document.getElementById('starsOverlay');
-            if (!overlay) return;
 
-            const fragment = document.createDocumentFragment();
-            const count = 120;
+  /*
+   * LIGHTBOX ДЛЯ СЕРТИФИКАТОВ
+   */
 
-            for (let i = 0; i < count; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
+  const overlay = document.createElement('div');
+  overlay.className = 'certificate-lightbox-overlay';
+  overlay.style.display = 'none';
+  overlay.setAttribute('aria-hidden', 'true');
 
-                const size = Math.random();
-                let w, opacity;
-                if (size < 0.6)      { w = 1; opacity = 0.3 + Math.random() * 0.4; }
-                else if (size < 0.9) { w = 2; opacity = 0.5 + Math.random() * 0.4; }
-                else                 { w = 3; opacity = 0.8 + Math.random() * 0.2; }
+  const lightboxImage = document.createElement('img');
+  lightboxImage.alt = 'Документ — увеличенное изображение';
 
-                let css = `position:absolute;width:${w}px;height:${w}px;`
-                        + `border-radius:50%;`
-                        + `left:${(Math.random()*100).toFixed(1)}%;`
-                        + `top:${(Math.random()*100).toFixed(1)}%;`
-                        + `opacity:${opacity.toFixed(2)};`;
+  overlay.appendChild(lightboxImage);
 
-                if (w >= 2) {
-                    const dur = (3 + Math.random() * 5).toFixed(1);
-                    const del = (Math.random() * 5).toFixed(1);
-                    css += `animation:starTwinkle ${dur}s ease-in-out infinite alternate;`
-                         + `animation-delay:${del}s;`;
-                }
+  const closeButton = document.createElement('button');
+  closeButton.className = 'certificate-lightbox-close';
+  closeButton.type = 'button';
+  closeButton.innerHTML = '✕';
+  closeButton.title = 'Закрыть изображение';
+  closeButton.setAttribute('aria-label', 'Закрыть изображение');
+  closeButton.style.display = 'none';
 
-                const rand = Math.random();
-                if      (rand < 0.05) css += 'background:#aaddff;box-shadow:0 0 3px #aaddff;';
-                else if (rand < 0.10) css += 'background:#ffddaa;box-shadow:0 0 3px #ffddaa;';
+  document.body.appendChild(closeButton);
+  document.body.appendChild(overlay);
 
-                star.style.cssText = css;
-                fragment.appendChild(star);
-            }
-
-            overlay.appendChild(fragment);
-        };
-
-        if ('requestIdleCallback' in window) {
-            requestIdleCallback(createStars, { timeout: 2000 });
-        } else {
-            setTimeout(createStars, 500);
-        }
+  function openLightbox(src, alt) {
+    if (!src) {
+      return;
     }
 
+    lightboxImage.src = src;
+    lightboxImage.alt = alt || 'Документ';
+
+    overlay.style.display = 'flex';
+    overlay.setAttribute('aria-hidden', 'false');
+
+    closeButton.style.display = 'block';
+    document.body.classList.add('lb-open');
+
+    closeButton.focus();
+  }
+
+  function closeLightbox() {
+    overlay.style.display = 'none';
+    overlay.setAttribute('aria-hidden', 'true');
+
+    closeButton.style.display = 'none';
+    document.body.classList.remove('lb-open');
+
+    lightboxImage.src = '';
+  }
+
+  overlay.addEventListener('click', function (event) {
+    if (event.target !== lightboxImage) {
+      closeLightbox();
+    }
+  });
+
+  closeButton.addEventListener('click', function () {
+    closeLightbox();
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('click', function (event) {
+    const certificate = event.target.closest('.certificate-img');
+
+    if (!certificate) {
+      return;
+    }
+
+    const largeImage =
+      certificate.dataset.large ||
+      certificate.currentSrc ||
+      certificate.src;
+
+    openLightbox(largeImage, certificate.alt);
+  });
 });
